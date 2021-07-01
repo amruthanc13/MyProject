@@ -8,3 +8,4 @@ class Pharmacy(models.Model):
     name = fields.Char(string="Pharmacy Name", required=True)
     location = fields.char(string="Location", required=True)
 
+
