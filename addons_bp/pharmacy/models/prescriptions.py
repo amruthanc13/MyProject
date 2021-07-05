@@ -2,12 +2,16 @@
 
 from odoo import models, fields
 
-class Prescription(models.Model):
-    _name = 'precscription'
 
-    prescription_id = fields.Char(string="Prescription id", required=True)
+class PharmacyPrescription(models.Model):
+    _name = 'pharmacy.prescription'
+    _description = 'Prescription details'
+
+    patient_name = fields.Many2one(
+        'pharmacy.patient', string='Patient Name')
     prescription_date = fields.Date(string='Prescription date')
-    medicine_code = fields.char(string="Medicine")
-    quantity = fields.Integer(string = 'Quantitiy')
-    
-
+    disease = fields.Char(string='Disease')
+    medicine_code = fields.Many2many('product.template', string="Medicine")
+    sale_order_id = fields.Many2one(
+        'pharmacy.sale.order', string='Sale order Id')
+    notes = fields.Text(string='Notes')
