@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pharmacy_clinical_history,access.pharmacy.clinical.history,model_pharmacy_clinical_history,,1,1,1,1
+access_pharmacy_disease_details,access.pharmacy.disease.details,model_pharmacy_disease_details,,1,1,1,1

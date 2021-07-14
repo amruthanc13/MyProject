@@ -7,8 +7,7 @@ class ClinicalHistory(models.Model):
     _name = 'pharmacy.clinical.history'
     _description = 'Clinical history of patients'
 
-    patient_name = fields.Many2one(
-        'pharmacy.patient', string='Patient')
-    disease = fields.Char(string="Disease")
-    reaction_medicine = fields.Many2many(
-        'product.template', string='Reaction to')
+    name = fields.Many2one(
+        'res.partner', string='Patient')
+    date = fields.Date(string='Date')
+    diseases = fields.Many2many('pharmacy.disease.details', string="Disease")

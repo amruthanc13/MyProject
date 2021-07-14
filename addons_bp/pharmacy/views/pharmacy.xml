@@ -1,0 +1,233 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<odoo >
+
+        <record id="patient_form_inherit" model="ir.ui.view">
+            <field name="name">pharmacy.patient.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="website" position="replace"/>
+                <field name="vat" position="replace"/>
+                <field name="function" position="replace"/>
+                <field name="category_id" position="replace"/>
+                <field name="title" position="before">
+                    <field name="insurance_no"/> 
+                </field>
+                    <page name="contact_addresses" position="before">
+                        <page name="patient_clinical_history" string="Clinical History" autofocus="autofocus">
+                            <field name="clinical_history">
+                                <tree editable="bottom">
+                                    <field name="date"/> 
+                                    <field name="diseases" widget="many2many_tags"/>     
+                                </tree>  
+                            </field>
+                        </page>
+                        <page name="patient_prescription" string="Prescription Orders">
+                            <field name="sale_order_ids">
+                            </field>                            
+                        </page>            
+                    </page> 
+            </field>
+        </record>
+
+        <record id="patient_tree_inherit" model="ir.ui.view">
+            <field name="name">pharmacy.patient.tree</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_tree"/>
+            <field name="arch" type="xml">
+                <field name="user_id" position="replace"/>
+                <field name="email" position="after">
+                    <field name="insurance_no"/> 
+                </field>
+            </field>
+        </record>
+
+        <record id="disease_details_form" model="ir.ui.view">
+            <field name="name">pharmacy.disease.details.form</field>
+            <field name="model">pharmacy.disease.details</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code" default_focus="1" placeholder="Code"/>
+                                <field name="reaction_medicine" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="name" placeholder="Name"/>
+                            </group>  
+                        </group>                     
+                    </sheet>
+                    </form>
+                </field>
+            </record>
+
+        <record id="disease_details_tree" model="ir.ui.view">
+            <field name="name">pharmacy.disease.details.tree</field>
+            <field name="model">pharmacy.disease.details</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="reaction_medicine" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="clinical_history_form" model="ir.ui.view">
+            <field name="name">pharmacy.clinical.history.form</field>
+            <field name="model">pharmacy.clinical.history</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" default_focus="1" placeholder="Name"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="diseases" placeholder="Diseases" widget="many2many_tags"/>
+                            </group>  
+                        </group>                     
+                    </sheet>
+                    </form>
+                </field>
+            </record>
+
+        <record id="clinical_history_tree" model="ir.ui.view">
+            <field name="name">pharmacy.clinical.history.tree</field>
+            <field name="model">pharmacy.clinical.history</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="diseases" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+        <record id="pharmacy_action" model="ir.actions.act_window">
+            <field name="name">Pharmacy</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.company</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new product
+                </p>
+            </field>
+        </record>
+                <record id="disease_details_action" model="ir.actions.act_window">
+            <field name="name">Disease Details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pharmacy.disease.details</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add a new disease detail
+                </p>
+            </field>
+        </record>
+        <record id="patient_action" model="ir.actions.act_window">
+            <field name="name">Patient Details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first patient
+                </p>
+            </field>
+        </record>
+        <record id="medicine_action" model="ir.actions.act_window">
+            <field name="name">Medicine Details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.product</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add medicines
+                </p>
+            </field>
+        </record>
+
+        <record id="pharmacy_sale_action" model="ir.actions.act_window">
+            <field name="name">Prescription orders</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sale.order</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add prescription orders
+                </p>
+            </field>
+        </record>
+        <record id="clinical_history_action" model="ir.actions.act_window">
+            <field name="name">Clinical History</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pharmacy.clinical.history</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add clinical history of patients
+                </p>
+            </field>
+        </record>
+
+        <!-- Top menu item -->
+        <menuitem id="pharmacy_root_menu"
+            name="Pharmacy"
+            web_icon="pharmacy,static/description/icon.png"
+            sequence="10"/>
+
+        <menuitem id="pharmacy_pharmacy_root"
+            name="Pharmacy"
+            parent="pharmacy_root_menu"
+            sequence="2"/>
+        <menuitem id="pharmacy_patient_root"
+            name="Patients"
+            parent="pharmacy_root_menu"
+            sequence="3"/>
+        <menuitem id="pharmacy_prescription_orders_root"
+            name="Prescription"
+            parent="pharmacy_root_menu"
+            sequence="4"/>
+        <menuitem id="pharmacy_medicine_root"
+            name="Medicine"
+            parent="pharmacy_root_menu"
+            sequence="5"/>
+        <menuitem id="pharmacy_disease_root"
+            name="Disease"
+            parent="pharmacy_root_menu"
+            sequence="6"/>
+        
+        <menuitem id="pharmacy_pharmacy"
+            name="Pharmacy"
+            parent="pharmacy_pharmacy_root"
+            action="pharmacy_action"
+            sequence="1"/>
+        <menuitem id="pharmacy_disease_details"
+            name="Disease Details"
+            parent="pharmacy_disease_root"
+            action="disease_details_action"
+            sequence="1"/>
+        <menuitem id="pharmacy_medicine"
+            name="Medicine"
+            parent="pharmacy_medicine_root"
+            action="medicine_action"
+            sequence="1"/>
+        <menuitem id="pharmacy_patient"
+            name="Patient Details"
+            parent="pharmacy_patient_root"
+            action="patient_action"
+            sequence="1"/>
+        <menuitem id="clinical_history"
+            name="Clinical History"
+            parent="pharmacy_patient_root"
+            action="clinical_history_action"
+            sequence="3"/>
+        <menuitem id="prescriptions"
+            name="Prescription orders"
+            parent="pharmacy_prescription_orders_root"
+            action="pharmacy_sale_action"
+            sequence="2"/>
+</odoo >
