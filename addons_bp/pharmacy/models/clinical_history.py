@@ -8,6 +8,7 @@ class ClinicalHistory(models.Model):
     _description = 'Clinical history of patients'
 
     name = fields.Many2one(
-        'res.partner', string='Patient')
+        'res.partner', string='Patient', required=True)
     date = fields.Date(string='Date')
-    diseases = fields.Many2many('pharmacy.disease.details', string="Disease")
+    diseases = fields.Many2many(
+        'pharmacy.disease.details', string="Disease", required=True)

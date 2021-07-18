@@ -1,6 +1,5 @@
 <?xml version = "1.0" encoding = "utf-8"?>
 <odoo >
-
         <record id="patient_form_inherit" model="ir.ui.view">
             <field name="name">pharmacy.patient.form</field>
             <field name="model">res.partner</field>
@@ -21,11 +20,7 @@
                                     <field name="diseases" widget="many2many_tags"/>     
                                 </tree>  
                             </field>
-                        </page>
-                        <page name="patient_prescription" string="Prescription Orders">
-                            <field name="sale_order_ids">
-                            </field>                            
-                        </page>            
+                        </page>    
                     </page> 
             </field>
         </record>
@@ -42,6 +37,18 @@
             </field>
         </record>
 
+        <record id="pharmacy_patient_search_form_view" model="ir.ui.view">
+            <field name="name">pharmacy.patient.search.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <field name="insurance_no" string="Insurance No."/>
+                    <filter string="Patients with Insurance No." name='insurance_no_filter' domain="[('insurance_no','!=',False)]"/>
+                </xpath>
+            </field>
+        </record>
+
         <record id="disease_details_form" model="ir.ui.view">
             <field name="name">pharmacy.disease.details.form</field>
             <field name="model">pharmacy.disease.details</field>
@@ -51,10 +58,11 @@
                         <group>
                             <group>
                                 <field name="code" default_focus="1" placeholder="Code"/>
-                                <field name="reaction_medicine" widget="many2many_tags"/>
+                                <field name="disease_categ"/>
                             </group>
                             <group>
                                 <field name="name" placeholder="Name"/>
+                                <field name="reaction_medicines" widget="many2many_tags"/>
                             </group>  
                         </group>                     
                     </sheet>
@@ -69,8 +77,26 @@
                 <tree>
                     <field name="code"/>
                     <field name="name"/>
-                    <field name="reaction_medicine" widget="many2many_tags"/>
+                    <field name="reaction_medicines" widget="many2many_tags"/>
+                    <field name="disease_categ" string="Disease Category" optional="hide"/>
                 </tree>
+            </field>
+        </record>
+        
+        <record id="disease_details_search" model="ir.ui.view">
+            <field name="name">pharmacy.disease.details.search</field>
+            <field name="model">pharmacy.disease.details</field>
+            <field name="arch" type="xml">
+                <search string="Diseases">                   
+                    <filter string="Diseases with medicine reaction" name='reaction_medicines' domain="[('reaction_medicines','!=',False)]"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="reaction_medicines"/>
+                    <separator/>
+                    <group expand="1" string="Group By">
+                        <filter string="Disease Category" name="disease_categ" context="{'group_by':'disease_categ'}"/>
+                    </group>
+                </search>
             </field>
         </record>
 
@@ -105,6 +131,51 @@
                 </tree>
             </field>
         </record>
+
+        <record id="clinical_history_search" model="ir.ui.view">
+            <field name="name">pharmacy.clinical.history.search</field>
+            <field name="model">pharmacy.clinical.history</field>
+            <field name="arch" type="xml">
+                <search string="Clinical history">
+                    <filter string="Today" name='date_today' 
+                    domain="[('date','&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')),('date','&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/>
+                    <filter string="Last ten days" name='date_last_ten_days' 
+                    domain="[('date','&gt;=', (context_today() - datetime.timedelta(days=10)).strftime('%Y-%m-%d 00:00:00')),('date','&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="diseases"/>
+                    <separator/>
+                    <group expand="1" string="Group By">
+                        <filter string="Patient" name="name" context="{'group_by':'name'}"/>
+                        <filter string="Date" name="date" context="{'group_by':'date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="pharmacy_clinical_history_calendar_view">
+            <field name="name">pharmacy.clinical.history.calendar.view</field>
+            <field name="model">pharmacy.clinical.history</field>
+            <field name="arch" type="xml">
+                <calendar string="Clinical history calendar" mode="month" date_start="date" quick_add="False" color="name" hide_time="true">
+                    <field name="name" filters="1"/>
+                    <field name="diseases" widget="many2many_tags"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="pharmacy_product_search_form_view" model="ir.ui.view">
+            <field name="name">pharmacy.product.product.search.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <field name="medicine_code" string="International drug code"/>
+                    <filter string="With international drug code" name='medicine_code_filter' domain="[('medicine_code','!=',False)]"/>
+                </xpath>
+            </field>
+        </record>
+
         <record id="pharmacy_action" model="ir.actions.act_window">
             <field name="name">Pharmacy</field>
             <field name="type">ir.actions.act_window</field>
@@ -116,7 +187,7 @@
                 </p>
             </field>
         </record>
-                <record id="disease_details_action" model="ir.actions.act_window">
+        <record id="disease_details_action" model="ir.actions.act_window">
             <field name="name">Disease Details</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">pharmacy.disease.details</field>
@@ -132,6 +203,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">tree,kanban,form</field>
+            <field name="context">{"search_default_insurance_no_filter":1}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Create your first patient
@@ -143,6 +215,7 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">product.product</field>
             <field name="view_mode">tree,kanban,form</field>
+            <field name="context">{"search_default_medicine_code_filter":1}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Add medicines
@@ -161,14 +234,28 @@
                 </p>
             </field>
         </record>
+
         <record id="clinical_history_action" model="ir.actions.act_window">
             <field name="name">Clinical History</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">pharmacy.clinical.history</field>
-            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="context">{"search_default_date_last_ten_days":1}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Add clinical history of patients
+                </p>
+            </field>
+        </record>
+
+        <record id="disease_categories_action" model="ir.actions.act_window">
+            <field name="name">Disease Categories</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">pharmacy.disease.category</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Add disease categories
                 </p>
             </field>
         </record>
@@ -210,6 +297,11 @@
             parent="pharmacy_disease_root"
             action="disease_details_action"
             sequence="1"/>
+        <menuitem id="disease_categories"
+            name="Disease Categories"
+            parent="pharmacy_disease_root"
+            action="disease_categories_action"
+            sequence="2"/>
         <menuitem id="pharmacy_medicine"
             name="Medicine"
             parent="pharmacy_medicine_root"
@@ -230,4 +322,5 @@
             parent="pharmacy_prescription_orders_root"
             action="pharmacy_sale_action"
             sequence="2"/>
+
 </odoo >
