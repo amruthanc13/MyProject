@@ -1,0 +1,68 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<odoo >
+
+        <record id="clinical_history_form" model="ir.ui.view">
+            <field name="name">pharmacy.clinical.history.form</field>
+            <field name="model">pharmacy.clinical.history</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" default_focus="1" placeholder="Name"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="disease_ids" placeholder="Diseases" widget="many2many_tags"/>
+                            </group>  
+                        </group>                     
+                    </sheet>
+                    </form>
+                </field>
+            </record>
+
+        <record id="clinical_history_tree" model="ir.ui.view">
+            <field name="name">pharmacy.clinical.history.tree</field>
+            <field name="model">pharmacy.clinical.history</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="disease_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="clinical_history_search" model="ir.ui.view">
+            <field name="name">pharmacy.clinical.history.search</field>
+            <field name="model">pharmacy.clinical.history</field>
+            <field name="arch" type="xml">
+                <search string="Clinical history">
+                    <filter string="Today" name='date_today' 
+                    domain="[('date','&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')),('date','&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/>
+                    <filter string="Last ten days" name='date_last_ten_days' 
+                    domain="[('date','&gt;=', (context_today() - datetime.timedelta(days=10)).strftime('%Y-%m-%d 00:00:00')),('date','&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="disease_ids"/>
+                    <separator/>
+                    <group expand="1" string="Group By">
+                        <filter string="Patient" name="name" context="{'group_by':'name'}"/>
+                        <filter string="Date" name="date" context="{'group_by':'date'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="pharmacy_clinical_history_calendar_view">
+            <field name="name">pharmacy.clinical.history.calendar.view</field>
+            <field name="model">pharmacy.clinical.history</field>
+            <field name="arch" type="xml">
+                <calendar string="Clinical history calendar" mode="month" date_start="date" quick_add="False" color="name" hide_time="true">
+                    <field name="name" filters="1"/>
+                    <field name="disease_ids" widget="many2many_tags"/>
+                </calendar>
+            </field>
+        </record>
+
+</odoo>

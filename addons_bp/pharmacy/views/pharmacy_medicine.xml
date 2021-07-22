@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<odoo>
+
+        <record id="medicine_form_inherit" model="ir.ui.view">
+            <field name="name">pharmacy.medicine.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <field name="default_code" position="after">
+                    <field name="medicine_code"/> 
+                </field>
+            </field>
+        </record>
+
+        <record id="medicine_tree_inherit" model="ir.ui.view">
+            <field name="name">pharmacy.medicine.tree</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_product_tree_view"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="medicine_code" optional="hide"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="pharmacy_product_search_form_view" model="ir.ui.view">
+            <field name="name">pharmacy.product.product.search.form</field>
+            <field name="model">product.product</field>
+            <field name="inherit_id" ref="product.product_search_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <field name="medicine_code" string="International drug code"/>
+                    <filter string="With international drug code" name='medicine_code_filter' domain="[('medicine_code','!=',False)]"/>
+                </xpath>
+            </field>
+        </record>
+        
+</odoo>

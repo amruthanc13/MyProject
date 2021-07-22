@@ -5,7 +5,8 @@ from odoo import api, models, fields
 class SaleOrderInherit(models.Model):
     _inherit = 'sale.order'
 
-    diseases = fields.Many2many('pharmacy.disease.details', string='Diseases')
+    disease_ids = fields.Many2many(
+        'pharmacy.disease.details', string='Diseases')
 
     def action_confirm(self):
         super(SaleOrderInherit, self).action_confirm()
