@@ -9,7 +9,8 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="name" default_focus="1" placeholder="Name"/>
+                                <field name="name" default_focus="1" placeholder="Name" domain="[('is_company', '=', False)]" 
+                                 context="{'form_view_ref': 'pharmacy.view_patient_form'}"/>
                                 <field name="date"/>
                             </group>
                             <group>

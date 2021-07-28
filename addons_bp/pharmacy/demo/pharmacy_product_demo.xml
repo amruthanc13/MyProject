@@ -5,7 +5,7 @@
             <field name="categ_id" ref="product.product_category_5"/>
             <field name="standard_price">10.0</field>
             <field name="list_price">8.0</field>
-            <field name="type">consu</field>
+            <field name="type">product</field>
             <field name="weight">0.01</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
@@ -18,7 +18,7 @@
             <field name="categ_id" ref="product.product_category_5"/>
             <field name="standard_price">15.0</field>
             <field name="list_price">9.0</field>
-            <field name="type">consu</field>
+            <field name="type">product</field>
             <field name="weight">0.01</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
@@ -31,7 +31,7 @@
             <field name="categ_id" ref="product.product_category_5"/>
             <field name="standard_price">20.0</field>
             <field name="list_price">6.0</field>
-            <field name="type">consu</field>
+            <field name="type">product</field>
             <field name="weight">0.01</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
@@ -44,7 +44,7 @@
             <field name="categ_id" ref="product.product_category_5"/>
             <field name="standard_price">24.0</field>
             <field name="list_price">9.0</field>
-            <field name="type">consu</field>
+            <field name="type">product</field>
             <field name="weight">0.01</field>
             <field name="uom_id" ref="uom.product_uom_unit"/>
             <field name="uom_po_id" ref="uom.product_uom_unit"/>

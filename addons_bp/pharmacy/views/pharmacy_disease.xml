@@ -44,10 +44,22 @@
                     <field name="code"/>
                     <field name="name"/>
                     <field name="reaction_medicine_ids"/>
+                    <field name="disease_categ_id"  filter_domain="[('disease_categ_id', 'child_of', raw_value)]"/>
                     <separator/>
                     <group expand="1" string="Group By">
                         <filter string="Disease Category" name="disease_categ_id" context="{'group_by':'disease_categ_id'}"/>
                     </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="disease_category_search_view" model="ir.ui.view">
+            <field name="name">pharmacy.disease.category.search</field>
+            <field name="model">pharmacy.disease.category</field>
+            <field name="arch" type="xml">
+                <search string="Disease Categories">
+                    <field name="name" string="Disease Categories"/>
+                    <field name="parent_id"/>
                 </search>
             </field>
         </record>
@@ -63,7 +75,7 @@
                                 name="%(disease_details_action)d"
                                 icon="fa-th-list"
                                 type="action"
-                                context="{'search_default_categ_id': active_id, 'default_categ_id': active_id, 'group_expand': True}">
+                                context="{'search_default_disease_categ_id': active_id, 'default_disease_categ_id': active_id, 'group_expand': True}">
                                 <div class="o_field_widget o_stat_info">
                                     <span class="o_stat_value"><field name="disease_count"/></span>
                                     <span class="o_stat_text"> Diseases</span>

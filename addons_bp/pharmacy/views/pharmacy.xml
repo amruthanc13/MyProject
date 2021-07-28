@@ -61,7 +61,7 @@
                 </p>
             </field>
         </record>
-
+        
         <record id="disease_categories_action" model="ir.actions.act_window">
             <field name="name">Disease Categories</field>
             <field name="type">ir.actions.act_window</field>
@@ -130,6 +130,11 @@
             name="Clinical History"
             parent="pharmacy_patient_root"
             action="clinical_history_action"
+            sequence="2"/>
+        <menuitem id="insurance_companies"
+            name="Insurance Company"
+            parent="pharmacy_patient_root"
+            action="insurance_company_action"
             sequence="3"/>
         <menuitem id="prescriptions"
             name="Prescription orders"
