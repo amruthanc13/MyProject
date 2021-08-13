@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_patient_clinical_history">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <div class="row">
+                        <h2>Patient Details</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <table class="table-sm o_main_table">
+                                    <t t-if="o.name">
+                                        <tr>
+                                            <th>
+                                                <span>Name</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.name"/>
+                                            </td>
+                                            <td rowspan="13">
+                                                <p style="text-align:right;padding-top:10px;">
+                                                    <img t-if="not o.image_1920" t-att-src="'web/static/src/img/placeholder.png'" height="140" border="1" width="120"/>
+                                                    <img t-if="o.image_1920" t-att-src="'data:image/png;base64,%s' % to_text(o.image_1920)" height="140" border="1" width="120"/>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-if="o.street">
+                                        <tr>
+                                            <th>
+                                                <span>Street</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.street"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-if="o.street2">
+                                        <tr>
+                                            <th>
+                                                <span>Street 2</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.street2"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-if="o.city">
+                                        <tr>
+                                            <th>
+                                                <span>City</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.city"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-if="o.state_id">
+                                        <tr>
+                                            <th>
+                                                <span>State</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.state_id"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-if="o.zip">
+                                        <tr>
+                                            <th>
+                                                <span>ZIP</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.zip"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-if="o.country_id">
+                                        <tr>
+                                            <th>
+                                                <span>Country</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.country_id"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-if="o.phone">
+                                        <tr>
+                                            <th>
+                                                <span>Phone</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.phone"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-if="o.mobile">
+                                        <tr>
+                                            <th>
+                                                <span>Mobile</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.mobile"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-if="o.email">
+                                        <tr>
+                                            <th>
+                                                <span>Email</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.email"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                    <t t-if="o.insurance_company_id">
+                                        <tr>
+                                            <th>
+                                                <span>Insurance Company</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.insurance_company_id"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <span>Co-payment</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.copayment"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                <span>Insurance No.</span>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.insurance_no"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </table>
+                                <br>
+                                </br>
+                                <p>
+                                    <t t-if="o.clinical_history_ids">
+                                        <h5>
+                                            <span>Clinical History</span>
+                                        </h5>
+                                        <table class="table table-sm o_main_table" name="clinical_history">
+                                            <thead>
+                                                <tr>
+                                                    <th name="th_date" class="text-left">
+                                                        <span>Date</span>
+                                                    </th>
+                                                    <th name="th_disease" class="text-left">
+                                                        <span>Diseases</span>
+                                                    </th>
+                                                    <th name="th_medicines" class="text-left">
+                                                        <span>Medicines</span>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <t t-foreach="o.clinical_history_ids" t-as="line">
+                                                <tr>
+                                                    <td>
+                                                        <span t-field="line.date"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="line.disease_ids"/>
+                                                    </td>
+                                                    <td>
+                                                        <span t-field="line.medicine_ids"/>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </table>
+                                    </t>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

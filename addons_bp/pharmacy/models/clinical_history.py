@@ -13,3 +13,5 @@ class ClinicalHistory(models.Model):
     date = fields.Date(string='Date', default=datetime.today())
     disease_ids = fields.Many2many(
         'pharmacy.disease.details', string="Disease", required=True)
+    medicine_ids = fields.Many2many(
+        'product.product', string="Medicines")

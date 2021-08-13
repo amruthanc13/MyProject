@@ -36,6 +36,15 @@
                 </div>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="%(patient_action)d" icon="fa-th-list"
+                                type="action"
+                                context="{'search_default_insurance_company_id': active_id, 'group_expand': True}">
+                                <!-- <field string="<Patients" name="patients_count" widget="statinfo"/> -->
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value"><field name="patients_count"/></span>
+                                    <span class="o_stat_text"> Patients</span>
+                                </div>
+                        </button>
                         <button class="oe_stat_button" type="action" name="%(sale.act_res_partner_2_sale_order)d" 
                         groups="sales_team.group_sale_salesman"
                         icon="fa-usd">
@@ -284,7 +293,7 @@
             <field name="name">Insurance Companies</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">kanban,tree,form</field>
             <field name="context">{'default_is_company':True}</field>
             <field name="domain">[('is_company','=',True)]</field>
             <field name="search_view_id" ref="pharmacy_insurance_search_form_view"/>

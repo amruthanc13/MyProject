@@ -10,6 +10,7 @@
             <field name="name" ref="res_partner_101"/>
             <field name="date" eval="(DateTime.today() - relativedelta(days=10)).strftime('%Y-%m-%d %H:%M')"/>
             <field name="disease_ids" eval="[(6, 0, [ref('disease_1')])]"/>
+            <field name="medicine_ids" eval="[(6, 0, [ref('product_product_201')])]"/>
             </record>
 
             <record id="clinical_history_3" model="pharmacy.clinical.history">

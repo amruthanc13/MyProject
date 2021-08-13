@@ -1,0 +1,788 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pharmacy
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-09 09:43+0000\n"
+"PO-Revision-Date: 2021-08-09 09:43+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__disease_count
+msgid "# Diseases"
+msgstr "# Krankheiten"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_res_partner__patients_count
+#: model:ir.model.fields,field_description:pharmacy.field_res_users__patients_count
+msgid "# Patients"
+msgstr "# Patienten"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "), are you sure to create a new one?"
+msgstr "), möchten Sie wirklich einen neuen erstellen?"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+msgid ""
+"<span class=\"o_form_label o_td_label\" name=\"address_name\">\n"
+"                                <b attrs=\"{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'contact')]}\">Company Address</b>\n"
+"                                <b attrs=\"{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'invoice')]}\">Invoice Address</b>\n"
+"                                <b attrs=\"{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'delivery')]}\">Delivery Address</b>\n"
+"                                <b attrs=\"{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'other')]}\">Other Address</b>\n"
+"                                <b attrs=\"{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'private')]}\">Private Address</b>\n"
+"                                <b attrs=\"{'invisible': ['&amp;', ('parent_id', '!=', False), ('type', '!=', False)]}\">Address</b>\n"
+"                            </span>"
+msgstr ""
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid ""
+"<span class=\"o_form_label o_td_label\" name=\"address_name\">\n"
+"                            <b attrs=\"{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'contact')]}\">Company Address</b>\n"
+"                            <b attrs=\"{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'invoice')]}\">Invoice Address</b>\n"
+"                            <b attrs=\"{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'delivery')]}\">Delivery Address</b>\n"
+"                            <b attrs=\"{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'other')]}\">Other Address</b>\n"
+"                            <b attrs=\"{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'private')]}\">Private Address</b>\n"
+"                            <b attrs=\"{'invisible': ['&amp;', ('parent_id', '!=', False), ('type', '!=', False)]}\">Address</b>\n"
+"                        </span>"
+msgstr ""
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_category_form_view
+msgid "<span class=\"o_stat_text\"> Diseases</span>"
+msgstr "Krankheiten"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+msgid "<span class=\"o_stat_text\"> Patients</span>"
+msgstr "Patienten"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "<span class=\"o_stat_text\">Invoiced</span>"
+msgstr "Fakturiert"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid ""
+"A partner with the same <span>\n"
+"                    <span class=\"o_vat_label\">Tax ID</span>\n"
+"                </span> already exists ("
+msgstr ""
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+msgid ""
+"A partner with the same <span><span class=\"o_vat_label\">Tax "
+"ID</span></span> already exists ("
+msgstr ""
+
+#. module: pharmacy
+#: model_terms:ir.actions.act_window,help:pharmacy.insurance_company_action
+msgid "Add Insurance Companies"
+msgstr "Versicherungsunternehmen hinzufügen"
+
+#. module: pharmacy
+#: model_terms:ir.actions.act_window,help:pharmacy.disease_details_action
+msgid "Add a new disease detail"
+msgstr "Füge ein neues Krankheitsdetail hinzu"
+
+#. module: pharmacy
+#: model_terms:ir.actions.act_window,help:pharmacy.clinical_history_action
+msgid "Add clinical history of patients"
+msgstr "Anamnese von Patienten hinzufügen"
+
+#. module: pharmacy
+#: model_terms:ir.actions.act_window,help:pharmacy.disease_categories_action
+msgid "Add disease categories"
+msgstr "Krankheitskategorien hinzufügen"
+
+#. module: pharmacy
+#: model_terms:ir.actions.act_window,help:pharmacy.medicine_action
+msgid "Add medicines"
+msgstr "Medikamente hinzufügen"
+
+#. module: pharmacy
+#: model_terms:ir.actions.act_window,help:pharmacy.pharmacy_sale_action
+msgid "Add prescription orders"
+msgstr "Rezeptbestellungen hinzufügen"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Address"
+msgstr "Adresse"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_insurance_search_form_view
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Archived"
+msgstr "Archiviert"
+
+#. module: pharmacy
+#: model:product.product,name:pharmacy.product_product_102
+#: model:product.template,name:pharmacy.product_product_102_product_template
+msgid "Augmentin 625"
+msgstr "Augmentin 625"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Avatar"
+msgstr "Benutzerbild"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__child_id
+msgid "Child Categories"
+msgstr "Kinderkategorien"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "City"
+msgstr "Stadt"
+
+#. module: pharmacy
+#: model:ir.actions.act_window,name:pharmacy.clinical_history_action
+#: model:ir.model.fields,field_description:pharmacy.field_res_partner__clinical_history_ids
+#: model:ir.model.fields,field_description:pharmacy.field_res_users__clinical_history_ids
+#: model:ir.ui.menu,name:pharmacy.clinical_history
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Clinical History"
+msgstr "Krankengeschichte"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.clinical_history_search
+msgid "Clinical history"
+msgstr "Krankengeschichte"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_clinical_history_calendar_view
+msgid "Clinical history calendar"
+msgstr "Anamnese-Kalender"
+
+#. module: pharmacy
+#: model:ir.model,name:pharmacy.model_pharmacy_clinical_history
+msgid "Clinical history of patients"
+msgstr "Klinische Vorgeschichte der Patienten"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_res_partner__copayment
+#: model:ir.model.fields,field_description:pharmacy.field_res_users__copayment
+msgid "Co-payment"
+msgstr "Zuzahlung"
+
+#. module: pharmacy
+#: code:addons/pharmacy/models/patients.py:0
+#, python-format
+msgid "Co-payment must be between 0 and 100"
+msgstr "Zuzahlung muss zwischen 0 und 100 . liegen"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_details_form
+msgid "Code"
+msgstr "Code"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_insurance_search_form_view
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__complete_name
+msgid "Complete Name"
+msgstr "Vollständiger Name"
+
+#. module: pharmacy
+#: model:ir.model,name:pharmacy.model_res_partner
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Contact / Address"
+msgstr "Kontakt / Adresse"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Contact Name"
+msgstr "Kontaktname"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Contact image"
+msgstr "Kontaktbild"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_tree
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_tree
+msgid "Contacts"
+msgstr "Kontakte"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Contacts & Addresses"
+msgstr "Kontakte & Adressen"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_insurance_search_form_view
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Country"
+msgstr "Land"
+
+#. module: pharmacy
+#: model_terms:ir.actions.act_window,help:pharmacy.pharmacy_action
+msgid "Create a new product"
+msgstr "Erstellen Sie ein neues Produkt"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Create company"
+msgstr "Unternehmen gründen"
+
+#. module: pharmacy
+#: model_terms:ir.actions.act_window,help:pharmacy.patient_action
+msgid "Create your first patient"
+msgstr "Erstellen Sie Ihren ersten Patienten"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_clinical_history__create_uid
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__create_uid
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details__create_uid
+msgid "Created by"
+msgstr "Erstellt von"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_clinical_history__create_date
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__create_date
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details__create_date
+msgid "Created on"
+msgstr "Erstellt am"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_clinical_history__date
+#: model_terms:ir.ui.view,arch_db:pharmacy.clinical_history_search
+msgid "Date"
+msgstr "Datum"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Delivery"
+msgstr "Lieferung"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_clinical_history__disease_ids
+#: model:ir.ui.menu,name:pharmacy.pharmacy_disease_root
+msgid "Disease"
+msgstr "Krankheit"
+
+#. module: pharmacy
+#: model:ir.actions.act_window,name:pharmacy.disease_categories_action
+#: model:ir.ui.menu,name:pharmacy.disease_categories
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_category_search_view
+msgid "Disease Categories"
+msgstr "Krankheitskategorien"
+
+#. module: pharmacy
+#: model:ir.model,name:pharmacy.model_pharmacy_disease_category
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details__disease_categ_id
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_category_tree_view
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_details_search
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_details_tree
+msgid "Disease Category"
+msgstr "Krankheitskategorie"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_category_form_view
+msgid "Disease Category name"
+msgstr "Name der Krankheitskategorie"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details__code
+msgid "Disease Code"
+msgstr "Krankheitscode"
+
+#. module: pharmacy
+#: model:ir.actions.act_window,name:pharmacy.disease_details_action
+#: model:ir.ui.menu,name:pharmacy.pharmacy_disease_details
+msgid "Disease Details"
+msgstr "Krankheitsdetails"
+
+#. module: pharmacy
+#: model:ir.model,name:pharmacy.model_pharmacy_disease_details
+msgid "Disease details"
+msgstr "Krankheitsdetails"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details__name
+msgid "Disease name"
+msgstr "Krankheitsname"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_sale_order__disease_ids
+#: model_terms:ir.ui.view,arch_db:pharmacy.clinical_history_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_details_search
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_sale_order_search_form_view
+msgid "Diseases"
+msgstr "Krankheiten"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_details_search
+msgid "Diseases with medicine reaction"
+msgstr "Krankheiten mit Medikamentenreaktion"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_clinical_history__display_name
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__display_name
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details__display_name
+#: model:ir.model.fields,field_description:pharmacy.field_product_product__display_name
+#: model:ir.model.fields,field_description:pharmacy.field_res_partner__display_name
+#: model:ir.model.fields,field_description:pharmacy.field_sale_order__display_name
+msgid "Display Name"
+msgstr "Anzeigename"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.clinical_history_search
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_details_search
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_insurance_search_form_view
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
+msgid "Group By"
+msgstr "Gruppiere nach"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_clinical_history__id
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__id
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details__id
+#: model:ir.model.fields,field_description:pharmacy.field_product_product__id
+#: model:ir.model.fields,field_description:pharmacy.field_res_partner__id
+#: model:ir.model.fields,field_description:pharmacy.field_sale_order__id
+msgid "ID"
+msgstr "Identifikation"
+
+#. module: pharmacy
+#: model:ir.model.fields,help:pharmacy.field_res_partner__copayment
+#: model:ir.model.fields,help:pharmacy.field_res_users__copayment
+msgid "Indicates the percentage of amount paid by the customer"
+msgstr "Gibt den Prozentsatz des vom Kunden gezahlten Betrags an"
+
+#. module: pharmacy
+#: model:ir.actions.act_window,name:pharmacy.insurance_company_action
+msgid "Insurance Companies"
+msgstr "Versicherungsgesellschaften"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_res_partner__insurance_company_id
+#: model:ir.model.fields,field_description:pharmacy.field_res_users__insurance_company_id
+#: model:ir.ui.menu,name:pharmacy.insurance_companies
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Insurance Company"
+msgstr "Versicherungsunternehmen"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_res_partner__insurance_no
+#: model:ir.model.fields,field_description:pharmacy.field_res_users__insurance_no
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
+msgid "Insurance No."
+msgstr "Versicherungsnummer"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
+msgid "Insurance company"
+msgstr "Insurance company"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Internal Notes"
+msgstr "Interne Hinweise"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Internal note..."
+msgstr "Interner Hinweis..."
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Internal notes..."
+msgstr "Interne Hinweise..."
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_product_product__medicine_code
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_product_search_form_view
+msgid "International drug code"
+msgstr "Internationaler Drogencode"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_clinical_history____last_update
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category____last_update
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details____last_update
+#: model:ir.model.fields,field_description:pharmacy.field_product_product____last_update
+#: model:ir.model.fields,field_description:pharmacy.field_res_partner____last_update
+#: model:ir.model.fields,field_description:pharmacy.field_sale_order____last_update
+msgid "Last Modified on"
+msgstr "Zuletzt geändert am"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_clinical_history__write_uid
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__write_uid
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details__write_uid
+msgid "Last Updated by"
+msgstr "Zuletzt aktualisiert von"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_clinical_history__write_date
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__write_date
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details__write_date
+msgid "Last Updated on"
+msgstr "Zuletzt aktualisiert am"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.clinical_history_search
+msgid "Last ten days"
+msgstr "Letzte zehn Tage"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Logo"
+msgstr "Logo"
+
+#. module: pharmacy
+#: model:product.product,name:pharmacy.product_product_200
+#: model:product.template,name:pharmacy.product_product_200_product_template
+msgid "MED-DEMO0"
+msgstr "MED-DEMO0"
+
+#. module: pharmacy
+#: model:product.product,name:pharmacy.product_product_201
+#: model:product.template,name:pharmacy.product_product_201_product_template
+msgid "MED-DEMO1"
+msgstr "MED-DEMO1"
+
+#. module: pharmacy
+#: model:product.product,name:pharmacy.product_product_202
+#: model:product.template,name:pharmacy.product_product_202_product_template
+msgid "MED-DEMO2"
+msgstr "MED-DEMO2"
+
+#. module: pharmacy
+#: model:product.product,name:pharmacy.product_product_203
+#: model:product.template,name:pharmacy.product_product_203_product_template
+msgid "MED-DEMO3"
+msgstr "MED-DEMO3"
+
+#. module: pharmacy
+#: model:ir.ui.menu,name:pharmacy.pharmacy_medicine
+#: model:ir.ui.menu,name:pharmacy.pharmacy_medicine_root
+msgid "Medicine"
+msgstr "Medizin"
+
+#. module: pharmacy
+#: model:ir.actions.act_window,name:pharmacy.medicine_action
+msgid "Medicine Details"
+msgstr "Medizin-Details"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_clinical_history__medicine_ids
+#: model_terms:ir.ui.view,arch_db:pharmacy.clinical_history_form
+msgid "Medicines"
+msgstr "Medikamente"
+
+#. module: pharmacy
+#: model:product.product,name:pharmacy.product_product_103
+#: model:product.template,name:pharmacy.product_product_103_product_template
+msgid "Meftal-Spas"
+msgstr "Meftal-Spas"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Misc"
+msgstr "Sonstiges"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Mobile:"
+msgstr "Mobiltelefon:"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "More languages"
+msgstr "Mehr Sprachen"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__name
+#: model_terms:ir.ui.view,arch_db:pharmacy.clinical_history_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_details_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_tree
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_tree
+msgid "Name"
+msgstr "Name"
+
+#. module: pharmacy
+#: model:product.product,name:pharmacy.product_product_100
+#: model:product.template,name:pharmacy.product_product_100_product_template
+msgid "Paracetamol"
+msgstr "Paracetamol"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__parent_id
+msgid "Parent Category"
+msgstr "Eltern-Kategorie"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_category__parent_path
+msgid "Parent Path"
+msgstr "Elternpfad"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Partners"
+msgstr "Partner"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_clinical_history__name
+#: model_terms:ir.ui.view,arch_db:pharmacy.clinical_history_search
+msgid "Patient"
+msgstr "Geduldig"
+
+#. module: pharmacy
+#: model:ir.actions.act_window,name:pharmacy.patient_action
+#: model:ir.ui.menu,name:pharmacy.pharmacy_patient
+msgid "Patient Details"
+msgstr "Patientendaten"
+
+#. module: pharmacy
+#: model:ir.actions.report,name:pharmacy.report_patient_clinical_history
+msgid "Patient's Clinical History"
+msgstr "Anamnese des Patienten"
+
+#. module: pharmacy
+#: model:ir.ui.menu,name:pharmacy.pharmacy_patient_root
+msgid "Patients"
+msgstr "Patienten"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
+msgid "Patients with Insurance"
+msgstr "Patienten mit Versicherung"
+
+#. module: pharmacy
+#: model:ir.actions.act_window,name:pharmacy.pharmacy_action
+#: model:ir.ui.menu,name:pharmacy.pharmacy_pharmacy
+#: model:ir.ui.menu,name:pharmacy.pharmacy_pharmacy_root
+#: model:ir.ui.menu,name:pharmacy.pharmacy_root_menu
+msgid "Pharmacy"
+msgstr "Apotheke"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Phone:"
+msgstr "Telefon:"
+
+#. module: pharmacy
+#: model:ir.ui.menu,name:pharmacy.pharmacy_prescription_orders_root
+msgid "Prescription"
+msgstr "Verschreibung"
+
+#. module: pharmacy
+#: model:ir.actions.act_window,name:pharmacy.pharmacy_sale_action
+#: model:ir.ui.menu,name:pharmacy.prescriptions
+msgid "Prescription orders"
+msgstr "Rezeptbestellungen"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Print Clinical History"
+msgstr "Anamnese drucken"
+
+#. module: pharmacy
+#: model:ir.model,name:pharmacy.model_product_product
+msgid "Product"
+msgstr "Produkt"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Purchase"
+msgstr "Kaufen"
+
+#. module: pharmacy
+#: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details__reaction_medicine_ids
+msgid "Reaction medicines"
+msgstr "Reaktionsmedikamente"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Reference"
+msgstr "Bezug"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Sales"
+msgstr "Der Umsatz"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Sales & Purchase"
+msgstr "Verkauf & Einkauf"
+
+#. module: pharmacy
+#: model:ir.model,name:pharmacy.model_sale_order
+msgid "Sales Order"
+msgstr "Verkaufsauftrag"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_insurance_search_form_view
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
+msgid "Salesperson"
+msgstr "Verkäufer"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_insurance_search_form_view
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
+msgid "Search Partner"
+msgstr "Partner suchen"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "State"
+msgstr "Zustand"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Street 2..."
+msgstr "Straße 2..."
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Street..."
+msgstr "Straße..."
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+msgid "Tags..."
+msgstr "Stichworte..."
+
+#. module: pharmacy
+#: model:ir.model.fields,help:pharmacy.field_pharmacy_disease_category__disease_count
+msgid ""
+"The number of disease under this category (Does not consider the children "
+"categories)"
+msgstr "
+"Die Zahl der Krankheiten unter dieser Kategorie (Berücksichtigt nicht die Kinder "
+"Kategorien)"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.clinical_history_search
+msgid "Today"
+msgstr "Heute"
+
+#. module: pharmacy
+#: model:product.product,uom_name:pharmacy.product_product_100
+#: model:product.product,uom_name:pharmacy.product_product_101
+#: model:product.product,uom_name:pharmacy.product_product_102
+#: model:product.product,uom_name:pharmacy.product_product_103
+#: model:product.product,uom_name:pharmacy.product_product_200
+#: model:product.product,uom_name:pharmacy.product_product_201
+#: model:product.product,uom_name:pharmacy.product_product_202
+#: model:product.product,uom_name:pharmacy.product_product_203
+#: model:product.template,uom_name:pharmacy.product_product_100_product_template
+#: model:product.template,uom_name:pharmacy.product_product_101_product_template
+#: model:product.template,uom_name:pharmacy.product_product_102_product_template
+#: model:product.template,uom_name:pharmacy.product_product_103_product_template
+#: model:product.template,uom_name:pharmacy.product_product_200_product_template
+#: model:product.template,uom_name:pharmacy.product_product_201_product_template
+#: model:product.template,uom_name:pharmacy.product_product_202_product_template
+#: model:product.template,uom_name:pharmacy.product_product_203_product_template
+msgid "Units"
+msgstr "Einheiten"
+
+#. module: pharmacy
+#: model:product.product,name:pharmacy.product_product_101
+#: model:product.template,name:pharmacy.product_product_101_product_template
+msgid "Valium"
+msgstr "Valium"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_product_search_form_view
+msgid "With international drug code"
+msgstr "Mit internationalem Drogencode"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "ZIP"
+msgstr "POSTLEITZAHL"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "e.g. Mister"
+msgstr "Beispiel Herr"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "e.g. Mr."
+msgstr "Beispiel Herr"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.disease_category_form_view
+msgid "e.g. Respiratory diseases"
+msgstr "Beispiel Erkrankungen der Atemwege"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "e.g. Sales Director"
+msgstr "Beispiel Verkaufsleiter"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+msgid "e.g. https://www.odoo.com"
+msgstr "Beispiel https://www.odoo.com"
