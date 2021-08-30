@@ -89,6 +89,17 @@
                         <group name="first" col="2">
                             <field name="parent_id"/>
                         </group>
+                        <notebook colspan="4">
+                    <page name="disease_details" string="Diseases" autofocus="autofocus">
+                        <field name="disease_ids">
+                            <tree editable="bottom">
+                                <field name="code"/>
+                                <field name="name"/>
+                                <field name="reaction_medicine_ids" widget="many2many_tags"/>
+                            </tree>
+                        </field>
+                    </page>
+                    </notebook>
                     </sheet>
                 </form>
             </field>

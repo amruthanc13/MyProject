@@ -35,6 +35,8 @@ class DiseaseCategory(models.Model):
     disease_count = fields.Integer(
         '# Diseases', compute='_compute_disease_count',
         help="The number of disease under this category (Does not consider the children categories)")
+    disease_ids = fields.One2many(
+        'pharmacy.disease.details', 'disease_categ_id', string="Diseases")
 
     @api.depends('name', 'parent_id.complete_name')
     def _compute_complete_name(self):

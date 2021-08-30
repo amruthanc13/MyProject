@@ -11,6 +11,7 @@
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="default_code">MEDICINE</field>
             <field name="medicine_code">MED-1001</field>
+            <field name="image_1920" type="base64" file="pharmacy/static/img/paracetamol.jpeg"/>
         </record>
 
         <record id="product_product_101" model="product.product">
@@ -24,6 +25,7 @@
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="default_code">MEDICINE</field>
             <field name="medicine_code">MED-1002</field>
+            <field name="image_1920" type="base64" file="pharmacy/static/img/valium.jpeg"/>
         </record>
 
         <record id="product_product_102" model="product.product">
@@ -37,6 +39,7 @@
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="default_code">MEDICINE</field>
             <field name="medicine_code">MED-1003</field>
+            <field name="image_1920" type="base64" file="pharmacy/static/img/Augmentin-625mg.jpeg"/>
         </record>
 
         <record id="product_product_103" model="product.product">
@@ -50,5 +53,6 @@
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="default_code">MEDICINE</field>
             <field name="medicine_code">MED-1004</field>
+            <field name="image_1920" type="base64" file="pharmacy/static/img/Meftal.png"/>
         </record>
 </odoo>

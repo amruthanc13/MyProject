@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
         <record id="product_product_200" model="product.product">
-            <field name="name">MED-DEMO0</field>
+            <field name="name">Amoxil</field>
             <field name="categ_id" ref="product.product_category_5"/>
             <field name="standard_price">10.0</field>
             <field name="list_price">8.0</field>
@@ -11,10 +11,11 @@
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="default_code">MEDICINE-DEMO</field>
             <field name="medicine_code">MED-2001</field>
+            <field name="image_1920" type="base64" file="pharmacy/static/img/Amoxil.jpeg"/>
         </record>
 
         <record id="product_product_201" model="product.product">
-            <field name="name">MED-DEMO1</field>
+            <field name="name">Neurontin</field>
             <field name="categ_id" ref="product.product_category_5"/>
             <field name="standard_price">15.0</field>
             <field name="list_price">9.0</field>
@@ -24,10 +25,11 @@
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="default_code">MEDICINE-DEMO</field>
             <field name="medicine_code">MED-2002</field>
+            <field name="image_1920" type="base64" file="pharmacy/static/img/neurontin.jpeg"/>
         </record>
 
         <record id="product_product_202" model="product.product">
-            <field name="name">MED-DEMO2</field>
+            <field name="name">Levoxyl</field>
             <field name="categ_id" ref="product.product_category_5"/>
             <field name="standard_price">20.0</field>
             <field name="list_price">6.0</field>
@@ -37,10 +39,11 @@
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="default_code">MEDICINE-DEMO</field>
             <field name="medicine_code">MED-2003</field>
+            <field name="image_1920" type="base64" file="pharmacy/static/img/levoxyl.jpeg"/>
         </record>
 
         <record id="product_product_203" model="product.product">
-            <field name="name">MED-DEMO3</field>
+            <field name="name">Xodol</field>
             <field name="categ_id" ref="product.product_category_5"/>
             <field name="standard_price">24.0</field>
             <field name="list_price">9.0</field>
@@ -50,5 +53,6 @@
             <field name="uom_po_id" ref="uom.product_uom_unit"/>
             <field name="default_code">MEDICINE-DEMO</field>
             <field name="medicine_code">MED-2004</field>
+            <field name="image_1920" type="base64" file="pharmacy/static/img/xodol.jpeg"/>
         </record>
 </odoo>

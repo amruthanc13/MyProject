@@ -1,7 +1,7 @@
 <?xml version = "1.0" encoding = "utf-8"?>
 <odoo>
 
-        <record id="pharmacy_action" model="ir.actions.act_window">
+        <!-- <record id="pharmacy_action" model="ir.actions.act_window">
             <field name="name">Pharmacy</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.company</field>
@@ -11,7 +11,7 @@
                     Create a new product
                 </p>
             </field>
-        </record>
+        </record> -->
         <record id="disease_details_action" model="ir.actions.act_window">
             <field name="name">Disease Details</field>
             <field name="type">ir.actions.act_window</field>
@@ -28,7 +28,7 @@
             <field name="name">Medicine Details</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">product.product</field>
-            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_mode">kanban,tree,form</field>
             <field name="context">{"search_default_medicine_code_filter":1}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
@@ -41,7 +41,8 @@
             <field name="name">Prescription orders</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">sale.order</field>
-            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="context">{"search_default_invoice_status":1}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Add prescription orders
@@ -53,7 +54,7 @@
             <field name="name">Clinical History</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">pharmacy.clinical.history</field>
-            <field name="view_mode">tree,form,calendar</field>
+            <field name="view_mode">calendar,tree,form</field>
             <field name="context">{"search_default_date_last_ten_days":1}</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
@@ -80,32 +81,27 @@
             web_icon="pharmacy,static/description/icon.png"
             sequence="10"/>
 
-        <menuitem id="pharmacy_pharmacy_root"
-            name="Pharmacy"
-            parent="pharmacy_root_menu"
-            sequence="2"/>
         <menuitem id="pharmacy_patient_root"
             name="Patients"
             parent="pharmacy_root_menu"
-            sequence="3"/>
+            sequence="2"/>
         <menuitem id="pharmacy_prescription_orders_root"
             name="Prescription"
             parent="pharmacy_root_menu"
-            sequence="4"/>
+            sequence="3"/>
         <menuitem id="pharmacy_medicine_root"
             name="Medicine"
             parent="pharmacy_root_menu"
-            sequence="5"/>
+            sequence="4"/>
         <menuitem id="pharmacy_disease_root"
             name="Disease"
             parent="pharmacy_root_menu"
+            sequence="5"/>
+        <menuitem id="pharmacy_insurance_companies_root"
+            name="Insurance Company"
+            parent="pharmacy_root_menu"
             sequence="6"/>
         
-        <menuitem id="pharmacy_pharmacy"
-            name="Pharmacy"
-            parent="pharmacy_pharmacy_root"
-            action="pharmacy_action"
-            sequence="1"/>
         <menuitem id="pharmacy_disease_details"
             name="Disease Details"
             parent="pharmacy_disease_root"
@@ -133,7 +129,7 @@
             sequence="2"/>
         <menuitem id="insurance_companies"
             name="Insurance Company"
-            parent="pharmacy_patient_root"
+            parent="pharmacy_insurance_companies_root"
             action="insurance_company_action"
             sequence="3"/>
         <menuitem id="prescriptions"

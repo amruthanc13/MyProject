@@ -12,7 +12,7 @@
                 <field name="phone" class="o_force_ltr" optional="show"/>
                 <field name="email" optional="show"/>
                 <field name="insurance_company_id"/>
-                <field name="copayment" optional="hide"/>
+                <field name="copayment"/>
                 <field name="insurance_no" optional="hide"/>
                 <field name="user_id" optional="hide" widget="many2one_avatar_user" domain="[('share', '=', False)]"/>
                 <field name="city" optional="show"/>
@@ -41,7 +41,8 @@
 ), are you sure to create a new one?
             </div>
             <header>
-            <button name="print_report" type="object" string="Print Clinical History" class ="oe_highlight" attrs="{'invisible': [('clinical_history_ids', '=',[])]}"/>
+                <button name="print_report" type="object" string="Print Clinical History" class ="oe_highlight" attrs="{'invisible': [('clinical_history_ids', '=',[])]}"/>
+                <button name="%(create_clinical_history_wizard)d" type="action" string="Quick Create Clinical History" context="{'default_name': active_id}" class ="oe_highlight" />
             </header>
             <sheet>
                 <div class="oe_button_box" name="button_box">
@@ -101,9 +102,9 @@
                         <field name="user_ids" invisible="1"/>
                         <field name="email" widget="email" context="{'gravatar_image': True}" attrs="{'required': [('user_ids','!=', [])]}"/>
                         <field name="title" options='{"no_open": True}' placeholder="e.g. Mister" attrs="{'invisible': [('is_company', '=', True)]}"/>
-                        <field name="insurance_company_id" placeholder="Insurance Company" domain="[('is_company', '=', True)]" context="{'form_view_ref': 'pharmacy.view_insurance_form'}"/>
-                        <field name="copayment" attrs="{'invisible':[('insurance_company_id', '=' ,False)]}"/>
-                        <field name="insurance_no" attrs="{'invisible':[('insurance_company_id', '=' ,False)] , 'required':[('insurance_company_id', '!=' ,False)]}"/>
+                        <field name="insurance_company_id" placeholder="Insurance Company" domain="[('is_insurance_company', '=', True)]" context="{'form_view_ref': 'pharmacy.view_insurance_form'}"/>
+                        <field name="copayment" attrs="{'invisible':[('insurance_company_id', '=' ,False)]}" />
+                        <field name="insurance_no" attrs="{'invisible':[('insurance_company_id', '=' ,False)] , 'required':[('insurance_company_id', '!=' ,False)]}" />
                         <field name="active_lang_count" invisible="1"/>
                         <label for="lang" attrs="{'invisible': [('active_lang_count', '&lt;=', 1)]}"/>
                         <div class="o_row" attrs="{'invisible': [('active_lang_count', '&lt;=', 1)]}">
@@ -253,6 +254,97 @@
     </field>
 </record>
 
+<record model="ir.ui.view" id="view_patient_kanban">
+    <field name="name">pharmacy.patient.kanban</field>
+    <field name="model">res.partner</field>
+    <field name="arch" type="xml">
+        <kanban class="o_res_partner_kanban" sample="1">
+            <field name="id"/>
+            <field name="color"/>
+            <field name="display_name"/>
+            <field name="title"/>
+            <field name="email"/>
+            <field name="parent_id"/>
+            <field name="is_company"/>
+            <field name="function"/>
+            <field name="phone"/>
+            <field name="street"/>
+            <field name="street2"/>
+            <field name="zip"/>
+            <field name="city"/>
+            <field name="country_id"/>
+            <field name="mobile"/>
+            <field name="state_id"/>
+            <field name="category_id"/>
+            <field name="image_128"/>
+            <field name="type"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_res_partner_kanban">
+                        <t t-if="!record.is_company.raw_value">
+                            <t t-if="record.type.raw_value === 'delivery'" t-set="placeholder" t-value="'/base/static/img/truck.png'"/>
+                            <t t-elif="record.type.raw_value === 'invoice'" t-set="placeholder" t-value="'/base/static/img/money.png'"/>
+                            <t t-else="" t-set="placeholder" t-value="'/base/static/img/avatar_grey.png'"/>
+                            <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{kanban_image('res.partner', 'image_128', record.id.raw_value,  placeholder)}')">
+                                <img class="o_kanban_image_inner_pic" t-if="record.parent_id.raw_value" t-att-alt="record.parent_id.value" t-att-src="kanban_image('res.partner', 'image_128', record.parent_id.raw_value)"/>
+                            </div>
+                            <div class="o_kanban_image d-md-none" t-attf-style="background-image:url('#{kanban_image('res.partner', 'image_128', record.id.raw_value,  placeholder)}')">
+                                <img class="o_kanban_image_inner_pic" t-if="record.parent_id.raw_value" t-att-alt="record.parent_id.value" t-att-src="kanban_image('res.partner', 'image_128', record.parent_id.raw_value)"/>
+                            </div>
+                        </t>
+                        <t t-else="">
+                            <t t-set="placeholder" t-value="'/base/static/img/company_image.png'"/>
+                            <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('res.partner', 'image_128', record.id.raw_value, placeholder)})" role="img"/>
+                        </t>
+                        <div class="oe_kanban_details d-flex flex-column">
+                            <strong class="o_kanban_record_title oe_partner_heading">
+                                <field name="display_name"/>
+                            </strong>
+                            <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                            <ul>
+                                <li t-if="record.parent_id.raw_value and !record.function.raw_value">
+                                    <field name="parent_id"/>
+                                </li>
+                                <li t-if="!record.parent_id.raw_value and record.function.raw_value">
+                                    <field name="function"/>
+                                </li>
+                                <li t-if="record.parent_id.raw_value and record.function.raw_value">
+                                    <field name="function"/>
+ at <field name="parent_id"/>
+                                </li>
+                                <li t-if="record.city.raw_value or record.country_id.raw_value">
+                                    <t t-if="record.city.raw_value">
+                                        <field name="city"/>
+                                        <t t-if="record.country_id.raw_value">, </t>
+                                    </t>
+                                    <t t-if="record.country_id.raw_value">
+                                        <field name="country_id"/>
+                                    </t>
+                                </li>
+                                <li t-if="record.email.raw_value" class="o_text_overflow">
+                                    <field name="email"/>
+                                </li>
+                            </ul>
+                            <div class="o_row">
+                                <span class="oe_kanban_partner_links"/>
+                            </div>
+                        </div>
+                        <div class="oe_dropdown_toggle">
+                            <i class="fa fa-bars fa-lg" title="Manage" aria-label="Manage"/>
+                            <ul class="oe_dropdown_menu">
+                                <li>
+                                    <a type="delete">Delete</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+
 <record id="pharmacy_patient_search_form_view" model="ir.ui.view">
     <field name="name">res.partner.select</field>
     <field name="model">res.partner</field>
@@ -283,7 +375,7 @@
     <field name="name">Patient Details</field>
     <field name="type">ir.actions.act_window</field>
     <field name="res_model">res.partner</field>
-    <field name="view_mode">tree,kanban,form</field>
+    <field name="view_mode">kanban,tree,form</field>
     <field name="search_view_id" ref="pharmacy_patient_search_form_view"/>
     <field name="context">{"search_default_insurance_filter":1}</field>
     <field name="domain">[('is_company','=',False)]</field>
@@ -295,15 +387,24 @@
 </record>
 
 <record model="ir.actions.act_window.view" id="patient_action_tree">
-    <field name="sequence" eval="1"/>
+    <field name="sequence" eval="2"/>
     <field name="view_mode">tree</field>
     <field name="view_id" ref="view_patient_tree"/>
     <field name="act_window_id" ref="patient_action"/>
 </record>
+
 <record model="ir.actions.act_window.view" id="patient_action_form">
-    <field name="sequence" eval="2"/>
+    <field name="sequence" eval="3"/>
     <field name="view_mode">form</field>
     <field name="view_id" ref="view_patient_form"/>
     <field name="act_window_id" ref="patient_action"/>
 </record>
+
+<record model="ir.actions.act_window.view" id="patient_action_kanban">
+    <field name="sequence" eval="1"/>
+    <field name="view_mode">kanban</field>
+    <field name="view_id" ref="view_patient_kanban"/>
+    <field name="act_window_id" ref="patient_action"/>
+</record>
+
 </odoo>

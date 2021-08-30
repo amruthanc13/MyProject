@@ -8,6 +8,7 @@ class PharmacyInsuranceCompanyInherit(models.Model):
 
     patients_count = fields.Integer(
         '# Patients', compute='_compute_patients_count')
+    is_insurance_company = fields.Boolean(string='Insurance Company',  default=False)
     
     def _compute_patients_count(self):
         for record in self:
