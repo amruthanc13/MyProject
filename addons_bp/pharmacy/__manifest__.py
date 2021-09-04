@@ -15,6 +15,7 @@
         'data/pharmacy_product_data.xml',
         'data/pharmacy_disease.xml',
         'wizards/create_clinical_history.xml',
+        'wizards/insurance_invoice_report.xml',
         'views/pharmacy_patients.xml',
         'views/pharmacy_insurance_company.xml',
         'views/pharmacy_res_partner.xml',
@@ -23,6 +24,7 @@
         'views/pharmacy_clinical_history.xml',
         'views/pharmacy_disease.xml',
         'views/pharmacy_medicine.xml',
+        'reports/pharmacy_insurance_invoice_report.xml',
         'reports/pharmacy_clinical_history_report.xml',
         'reports/pharmacy_reports.xml'],
     'demo': [

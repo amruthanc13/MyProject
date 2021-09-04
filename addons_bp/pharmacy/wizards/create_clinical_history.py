@@ -4,7 +4,7 @@ from odoo import api, models, fields
 from datetime import datetime
 
 
-class CreateClinicalHistory(models.Model):
+class CreateClinicalHistory(models.TransientModel):
     _name = 'clinical.history.wizard'
     _description = 'Clinical history of patients'
 

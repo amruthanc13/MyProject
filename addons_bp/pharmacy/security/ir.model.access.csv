@@ -3,3 +3,4 @@ access_pharmacy_clinical_history,access.pharmacy.clinical.history,model_pharmacy
 access_pharmacy_disease_details,access.pharmacy.disease.details,model_pharmacy_disease_details,,1,1,1,1
 access_pharmacy_disease_category,access.pharmacy.disease.category,model_pharmacy_disease_category,,1,1,1,1
 access_clinical_history_wizard,access.clinical.history.wizard,model_clinical_history_wizard,,1,1,1,1
+access_insurance_invoice_report_wizard,access.insurance_invoice_report.wizard,model_insurance_invoice_report_wizard,,1,1,1,1
