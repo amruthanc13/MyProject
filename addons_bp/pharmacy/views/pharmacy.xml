@@ -75,6 +75,16 @@
             </field>
         </record>
 
+        <record id="pharmacy_config_settings" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_id" ref="res_config_settings_view_form"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module': 'pharmacy'}</field>
+        </record>
+
         <!-- Top menu item -->
         <menuitem id="pharmacy_root_menu"
             name="Pharmacy"
@@ -101,6 +111,10 @@
             name="Insurance Company"
             parent="pharmacy_root_menu"
             sequence="6"/>
+        <menuitem id="pharmacy_configuration_root"
+            name="Configuration"
+            parent="pharmacy_root_menu"
+            sequence="10"/>
         
         <menuitem id="pharmacy_disease_details"
             name="Disease Details"
@@ -137,5 +151,15 @@
             parent="pharmacy_prescription_orders_root"
             action="pharmacy_sale_action"
             sequence="2"/>
+        <menuitem id="settings"
+            name="Setttings"
+            parent="pharmacy_configuration_root"
+            action="pharmacy_config_settings"
+            sequence="1"/>
+        <menuitem id="dynamic_report"
+            name="Dynamic Report"
+            parent="pharmacy_configuration_root"
+            action="dynamic_report.action_dynamic_report_template"
+            sequence="10"/>
 
 </odoo >

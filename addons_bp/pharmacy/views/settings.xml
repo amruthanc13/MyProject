@@ -1,0 +1,32 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pharmacy</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="Pharmacy" string="Pharmacy" data-key="pharmacy">
+                    <h2>Pharmacy</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="o_settings_left_pane">
+                            <field name="confirmation_report"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Confirmation Report</span>
+                            <div class="text-muted">
+                                    Automatic report is generated and sent to the patient when the order is confirmed
+                            </div>
+                            <div class="row mt16" attrs="{'invisible': [('confirmation_report', '=', False)], 'required':[('confirmation_report', '!=' ,False)]}">
+                                <label for="dynamic_report_template_id" string="Dynamic Report Template" class="col-lg-4 o_light_label"/>
+                                <field name="dynamic_report_template_id" class="oe_inline"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -5,3 +5,6 @@ from . import clinical_history
 from . import disease
 from . import medicine
 from . import insurance
+from . import settings
+from . import dynamic_report_inherit
+from . import scrap_inherit

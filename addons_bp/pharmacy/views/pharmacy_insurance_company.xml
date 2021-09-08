@@ -38,7 +38,7 @@
 ), are you sure to create a new one?
             </div>
             <header>
-                <button name="%(create_clinical_history_wizard)d" type="action" string="Print Invoices" context="{'default_insurance_company_id': active_id}" class ="oe_highlight" />
+                <button name="%(print_invoice_report_wizard)d" type="action" string="Print Invoices" context="{'default_insurance_company_id': active_id}" class ="oe_highlight" />
             </header>
             <sheet>
                 <div class="oe_button_box" name="button_box">
@@ -86,6 +86,7 @@
                 <group>
                     <group>
                         <field name="is_insurance_company" widget="boolean_toggle" />
+                        <field name="contact_person"/>
                         <field name="type" groups="base.group_no_one" attrs="{'invisible': [('is_company','=', True)], 'readonly': [('user_ids', '!=', [])]}"/>
                         <span class="o_form_label o_td_label" name="address_name">
                             <b attrs="{'invisible': ['|', ('parent_id', '=', False), ('type', '!=', 'contact')]}">Company Address</b>

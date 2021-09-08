@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="dynamic_report_form_inherit" model="ir.ui.view">
+        <field name="name">dynamic_report_inherit_form</field>
+        <field name="model">dynamic.report.template</field>
+        <field name="inherit_id" ref="dynamic_report.dynamic_report_template_view_form"/>
+        <field name="arch" type="xml">
+            <button name="action_draft" position="before">
+                <button string="View Preview" name="action_generate_preview" help="You can see the preview of the template here" states="draft" type="object" class="btn-primary"/>
+            </button>
+        </field>
+    </record>
+
+</odoo>

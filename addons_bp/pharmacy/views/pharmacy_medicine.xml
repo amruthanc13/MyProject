@@ -9,6 +9,9 @@
             <field name="default_code" position="after">
                 <field name="medicine_code"/>
             </field>
+            <field name="categ_id" position="after">
+                <field name="prescription_required" widget="boolean_toggle" />
+            </field>
         </field>
     </record>
 

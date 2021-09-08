@@ -21,7 +21,7 @@
     </record>
 
 
-    <record id="create_clinical_history_wizard" model="ir.actions.act_window">
+    <record id="print_invoice_report_wizard" model="ir.actions.act_window">
         <field name="name">Print Insurance Invoices</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">insurance.invoice.report.wizard</field>

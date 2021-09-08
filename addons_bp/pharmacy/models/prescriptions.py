@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-from odoo import api, models, fields
-from odoo.exceptions import AccessError
+import base64
+from odoo import api, models, fields, _
+from odoo.exceptions import AccessError, ValidationError
 from itertools import groupby
 
 
@@ -9,22 +10,56 @@ class SaleOrderInherit(models.Model):
 
     disease_ids = fields.Many2many(
         'pharmacy.disease.details', string='Diseases')
+    prescription = fields.Binary(string="Prescription")
+    prescription_name = fields.Char(string="File Name")
+
+    def check_prescription(self):
+        for line in self.order_line:
+            if (line.product_id.prescription_required) and not self.prescription:
+                raise ValidationError(_("%s cannot be solved without prescription.",line.name))
 
     def action_confirm(self):
-        super(SaleOrderInherit, self).action_confirm()
+        self.check_prescription()
+        res = super(SaleOrderInherit, self).action_confirm()
         if self.state == 'sale' and self.disease_ids.exists():
             vals = {'name': self.partner_id.id,
                     'date': self.date_order,
                     'disease_ids': [(6, 0, self.disease_ids.ids)],
                     'medicine_ids': [(6,0, self.order_line.product_id.ids)]}
             self.env['pharmacy.clinical.history'].create(vals)
-        return True
+        res =self.confirm_report()
+        return res
+    
+    def confirm_report(self):
+        confirmation_report = self.env['ir.config_parameter'].sudo(
+            ).get_param('pharmacy.confirmation_report')
+        if confirmation_report:
+            dynamic_report_id = self.env['ir.config_parameter'].sudo(
+            ).get_param('pharmacy.dynamic_report_template_id')
+            template_id = self.env['dynamic.report.template'].search(
+                [('id', '=', dynamic_report_id)])
+            pdfs = template_id.generate_pdf(self.ids)             
+            data = base64.b64encode(pdfs[self.id])
+            base_url = self.env['ir.config_parameter'].get_param('web.base.url')
+            attachment_id = self.env['ir.attachment'].create({
+                                'name': f"Confirm Report {self.name}.pdf",
+                                'res_id': self.id,
+                                'res_model': self._context.get('active_model'),
+                                'datas': data,
+                                'description': self.id,
+                                'type': 'binary',
+                                })
+            email_template_id = self.env.ref('pharmacy.confirm_order_email_template').id
+            email_template = self.env['mail.template'].browse(email_template_id)
+            email_template.attachment_ids =[(6,0,[attachment_id.id])]
+            email_template.send_mail(self.id, force_send=True)
+        return  True       
 
     def _prepare_invoice(self):
         invoice_vals = super(SaleOrderInherit, self)._prepare_invoice()
         partner = self.env['res.partner'].browse(
             invoice_vals.get('partner_id'))
-        if partner.insurance_company_id.exists():
+        if partner.insurance_company_id.exists() and (self.prescription):
             if(partner.copayment == 0):
                 invoice_vals['partner_id'] = partner.insurance_company_id.address_get(['contact'])[
                 'contact']
@@ -147,11 +182,8 @@ class SaleOrderInherit(models.Model):
         
     def _create_invoices(self, grouped=False, final=False, date=None):
         for order in self:
-            partner= self.env['res.partner'].browse(order.partner_id.id)
-            if partner.insurance_company_id.exists() and (0.0 < partner.copayment < 100.0):
-                moves=order._create_invoices_copayment(copayment = partner.copayment)
+            if order.partner_id.insurance_company_id.exists() and (0.0 < order.partner_id.copayment < 100.0) and (order.prescription):
+                moves=order._create_invoices_copayment(copayment = order.partner_id.copayment)
             else:
                 moves= super(SaleOrderInherit,order)._create_invoices()
         return moves
-
-    

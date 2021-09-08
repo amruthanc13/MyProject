@@ -396,6 +396,7 @@ msgstr "Versicherungsgesellschaften"
 #. module: pharmacy
 #: model:ir.model.fields,field_description:pharmacy.field_res_partner__insurance_company_id
 #: model:ir.model.fields,field_description:pharmacy.field_res_users__insurance_company_id
+#: model:ir.ui.menu,name:pharmacy.pharmacy_insurance_companies_root
 #: model:ir.ui.menu,name:pharmacy.insurance_companies
 #: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
 #: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
@@ -412,7 +413,7 @@ msgstr "Versicherungsnummer"
 #. module: pharmacy
 #: model_terms:ir.ui.view,arch_db:pharmacy.pharmacy_patient_search_form_view
 msgid "Insurance company"
-msgstr "Insurance company"
+msgstr "Versicherungsunternehmen"
 
 #. module: pharmacy
 #: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
@@ -555,6 +556,11 @@ msgstr "Mehr Sprachen"
 msgid "Name"
 msgstr "Name"
 
+#. module: pharmacy 
+#: model_terms:ir.ui.view,arch_db:pharmacy.medicine_kanban_inherit 
+msgid "On hand:"
+msgstr "Erhältlich"
+
 #. module: pharmacy
 #: model:product.product,name:pharmacy.product_product_100
 #: model:product.template,name:pharmacy.product_product_100_product_template
@@ -635,6 +641,17 @@ msgid "Print Clinical History"
 msgstr "Anamnese drucken"
 
 #. module: pharmacy
+#: model:ir.actions.act_window,name:pharmacy.print_invoice_report_wizard
+msgid "Print Insurance Invoices"
+msgstr "Versicherungsrechnungen drucken"
+
+#. module: pharmacy
+#: model_terms:ir.ui.view,arch_db:pharmacy.insurance_invoice_report_wizard_form
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_insurance_form
+msgid "Print Invoices"
+msgstr "Rechnungen drucken"
+
+#. module: pharmacy
 #: model:ir.model,name:pharmacy.model_product_product
 msgid "Product"
 msgstr "Produkt"
@@ -644,6 +661,11 @@ msgstr "Produkt"
 #: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
 msgid "Purchase"
 msgstr "Kaufen"
+
+#. module: pharmacy 
+#: model_terms:ir.ui.view,arch_db:pharmacy.view_patient_form
+msgid "Quick Create Clinical History"
+msgstr "Klinische Anamnese schnell erstellen"
 
 #. module: pharmacy
 #: model:ir.model.fields,field_description:pharmacy.field_pharmacy_disease_details__reaction_medicine_ids

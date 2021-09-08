@@ -4,7 +4,7 @@
             <field name="name">Scurvy</field>
             <field name="code">DIS-1001</field>
             <field name="disease_categ_id" ref="disease_category_3"/>
-            <field name="reaction_medicine_ids" eval="[(6, 0, [ref('product_product_100'),ref('product_product_103')])]"/>
+            <field name="reaction_medicine_ids" eval="[(6, 0, [ref('product_product_103')])]"/>
         </record>
         <record id="disease_2" model="pharmacy.disease.details">
             <field name="name">Beriberi</field>

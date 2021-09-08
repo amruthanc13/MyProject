@@ -11,9 +11,22 @@
             <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
                 <attribute name="groups">pharmacy.group_pharmacy_manager</attribute>
             </xpath>
+            <field name="partner_id" position="attributes">
+                <attribute name="context">{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True, 'form_view_ref': 'pharmacy.view_patient_form'}</attribute>
+            </field>
             <field name="partner_id" position="after">
+                <field name="prescription" filename="prescription_name"/>
+                <field name="prescription_name" invisible="1"/>
                 <field name="disease_ids" widget="many2many_tags"/>
             </field>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
+                <field name="is_warning" invisible="1" />
+                <field name="clinical_history_id" invisible="1" />
+                <button name="action_clinical_history" type="object" width="135" icon="fa-warning" help="This medicine may cause reaction considering your previous clinical history"  class="btn-warning" attrs="{'invisible': [('is_warning', '=', False)]}" />
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                <attribute name="decoration-warning">is_warning</attribute>
+            </xpath>
         </field>
     </record>
 
