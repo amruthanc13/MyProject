@@ -1,0 +1,50 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<odoo>
+    <record id="sale_order_form_inherit" model="ir.ui.view">
+        <field name="name">pharmacy.sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+                <attribute name="groups">pharmacy.group_pharmacy_manager</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                <attribute name="groups">pharmacy.group_pharmacy_manager</attribute>
+            </xpath>
+            <field name="partner_id" position="attributes">
+                <attribute name="context">{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True, 'form_view_ref': 'pharmacy.view_patient_form'}</attribute>
+                <attribute name="domain">[(('is_company', '=', False))]</attribute>
+            </field>
+            <field name="partner_id" position="after">
+                <field name="prescription" filename="prescription_name"/>
+                <field name="prescription_name" invisible="1"/>
+                <field name="disease_ids" widget="many2many_tags"/>
+            </field>
+            <field name="payment_term_id" position="after">
+                <field name="doctor_name"/>
+            </field>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
+                <field name="is_warning" invisible="1" />
+                <field name="clinical_history_id" invisible="1" />
+                <button name="action_clinical_history" type="object" width="135" icon="fa-warning" help="This medicine may cause reaction considering your previous clinical history"  class="btn-warning" attrs="{'invisible': [('is_warning', '=', False)]}" />
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree" position="attributes">
+                <attribute name="decoration-warning">is_warning</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="pharmacy_sale_order_search_form_view" model="ir.ui.view">
+        <field name="name">pharmacy.sale.order.search.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="disease_ids" string="Diseases"/>
+                <filter string="Diseases" name='diseases_filter' domain="[('disease_ids','!=',False)]"/>
+                <filter string="To Invoice" name='invoice_filter' domain="[('invoice_status','=','to invoice')]"/>
+                <filter name="invoice_status" string="Invoice Status" domain="[]" context="{'group_by': 'invoice_status'}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo >

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+            <record id="res_partner_200" model="res.partner">
+            <field name="name">AOK Insurance company</field>
+            <field name="is_insurance_company">1</field>
+            <field name="is_company">1</field>
+            <field eval="[(6, 0, [ref('base.res_partner_category_2')])]" name="category_id"/>
+            <field name="street">18358969 Am Vorhorn </field>
+            <field name="city">Turlock</field>
+            <field name="state_id" ref='base.state_us_5'/>
+            <field name="zip">95380</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="email">aok@example.com</field>
+            <field name="phone">(158)-879-7197</field>
+            <field name="image_1920" type="base64" file="pharmacy/static/img/AOK.png"/>
+            </record>
+
+            <record id="res_partner_201" model="res.partner">
+            <field name="name">TK Insurance company</field>
+            <field name="is_insurance_company">1</field>
+            <field name="is_company">1</field>
+            <field eval="[(6, 0, [ref('base.res_partner_category_2')])]" name="category_id"/>
+            <field name="street">TK street</field>
+            <field name="city">Magdeburg</field>
+            <field name="state_id" ref='base.state_us_5'/>
+            <field name="zip">45826</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="email">tk@example.com</field>
+            <field name="phone">(645)-458-7896</field>
+            <field name="image_1920" type="base64" file="pharmacy/static/img/tk.png"/>
+            </record>
+
+            <record id="res_partner_202" model="res.partner">
+            <field name="name">Barmer Insurance company</field>
+            <field name="is_insurance_company">1</field>
+            <field name="is_company">1</field>
+            <field eval="[(6, 0, [ref('base.res_partner_category_2')])]" name="category_id"/>
+            <field name="street">Beethoven street</field>
+            <field name="city">Magdeburg</field>
+            <field name="state_id" ref='base.state_us_5'/>
+            <field name="zip">45896</field>
+            <field name="country_id" ref="base.us"/>
+            <field name="email">Barmer@example.com</field>
+            <field name="phone">(456)-458-7896</field>
+            <field name="image_1920" type="base64" file="pharmacy/static/img/barmer.png"/>
+            </record>
+</odoo>

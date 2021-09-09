@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="disease_1" model="pharmacy.disease.details">
+            <field name="name">Scurvy</field>
+            <field name="code">DIS-1001</field>
+            <field name="disease_categ_id" ref="disease_category_3"/>
+            <field name="reaction_medicine_ids" eval="[(6, 0, [ref('product_product_103')])]"/>
+        </record>
+        <record id="disease_2" model="pharmacy.disease.details">
+            <field name="name">Beriberi</field>
+            <field name="code">DIS-1002</field>
+            <field name="disease_categ_id" ref="disease_category_3"/>
+            <field name="reaction_medicine_ids" eval="[(6, 0, [ref('product_product_102'),ref('product_product_103')])]"/>
+        </record>
+        <record id="disease_3" model="pharmacy.disease.details">
+            <field name="name">Rickets</field>
+            <field name="code">DIS-1003</field>
+            <field name="disease_categ_id" ref="disease_category_3"/>
+        </record>
+        <record id="disease_4" model="pharmacy.disease.details">
+            <field name="name">Goiter</field>
+            <field name="code">DIS-1004</field>
+            <field name="disease_categ_id" ref="disease_category_3"/>
+        </record>
+        <record id="disease_5" model="pharmacy.disease.details">
+            <field name="name">Anaemia</field>
+            <field name="code">DIS-1005</field>
+            <field name="disease_categ_id" ref="disease_category_3"/>
+        </record>
+        <record id="disease_6" model="pharmacy.disease.details">
+            <field name="name">Cretinism</field>
+            <field name="code">DIS-1006</field>
+            <field name="disease_categ_id" ref="disease_category_4"/>
+        </record>
+        <record id="disease_7" model="pharmacy.disease.details">
+            <field name="name">Iron Deficiency</field>
+            <field name="code">DIS-1007</field>
+            <field name="disease_categ_id" ref="disease_category_4"/>
+        </record>
+        <record id="disease_8" model="pharmacy.disease.details">
+            <field name="name">Osteoporosis</field>
+            <field name="code">DIS-1008</field>
+            <field name="disease_categ_id" ref="disease_category_5"/>
+            <field name="reaction_medicine_ids" eval="[(6, 0, [ref('product_product_101')])]"/>
+        </record>
+        <record id="disease_9" model="pharmacy.disease.details">
+            <field name="name">Hypoglycemia</field>
+            <field name="code">DIS-1009</field>
+            <field name="disease_categ_id" ref="disease_category_5"/>
+        </record>
+        <record id="disease_10" model="pharmacy.disease.details">
+            <field name="name">Anxiety</field>
+            <field name="code">DIS-1010</field>
+            <field name="disease_categ_id" ref="disease_category_5"/>
+        </record>
+        <record id="disease_11" model="pharmacy.disease.details">
+            <field name="name">Flu</field>
+            <field name="code">DIS-1011</field>
+            <field name="disease_categ_id" ref="disease_category_6"/>
+        </record>
+        <record id="disease_12" model="pharmacy.disease.details">
+            <field name="name">Measles</field>
+            <field name="code">DIS-1012</field>
+            <field name="disease_categ_id" ref="disease_category_7"/>
+        </record>
+        <record id="disease_13" model="pharmacy.disease.details">
+            <field name="name">Rubella</field>
+            <field name="code">DIS-1013</field>
+            <field name="disease_categ_id" ref="disease_category_7"/>
+        </record>
+        <record id="disease_14" model="pharmacy.disease.details">
+            <field name="name">Chickenpox</field>
+            <field name="code">DIS-1014</field>
+            <field name="disease_categ_id" ref="disease_category_7"/>
+        </record>
+        <record id="disease_15" model="pharmacy.disease.details">
+            <field name="name">Smallpox</field>
+            <field name="code">DIS-1015</field>
+            <field name="disease_categ_id" ref="disease_category_7"/>
+        </record>
+        <record id="disease_16" model="pharmacy.disease.details">
+            <field name="name">Cholera</field>
+            <field name="code">DIS-1016</field>
+            <field name="disease_categ_id" ref="disease_category_8"/>
+        </record>
+        <record id="disease_17" model="pharmacy.disease.details">
+            <field name="name">Tuberculosis</field>
+            <field name="code">DIS-1017</field>
+            <field name="disease_categ_id" ref="disease_category_8"/>
+        </record>
+        <record id="disease_18" model="pharmacy.disease.details">
+            <field name="name">Anthrax</field>
+            <field name="code">DIS-1018</field>
+            <field name="disease_categ_id" ref="disease_category_8"/>
+        </record>
+        <record id="disease_19" model="pharmacy.disease.details">
+            <field name="name">Pneumocystis pneumonia</field>
+            <field name="code">DIS-1019</field>
+            <field name="disease_categ_id" ref="disease_category_9"/>
+        </record>
+        <record id="disease_20" model="pharmacy.disease.details">
+            <field name="name">Malaria</field>
+            <field name="code">DIS-1020</field>
+            <field name="disease_categ_id" ref="disease_category_10"/>
+        </record>
+</odoo>

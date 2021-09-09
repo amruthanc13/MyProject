@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="create_clinical_history_wizard_form" model="ir.ui.view">
+        <field name="name">pharmacy.clinical.history</field>
+        <field name="model">clinical.history.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create a clinical history">
+                <group>
+                    <group>
+                        <field name="name" context="{'default_name': active_id}" readonly="1"/>
+                        <field name="date" />
+                    </group>
+                    <group>
+                        <field name="disease_ids" widget="many2many_tags" autofocus="autofocus"/>
+                        <field name="medicine_ids" widget="many2many_tags"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Create Clinical History" type="object" name="action_create_clinical_history_wizard" class="oe_highlight" />
+                    <button string="Cancel" special="cancel" type="object" class="btn btn-secondary oe_inline"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="create_clinical_history_wizard" model="ir.actions.act_window">
+        <field name="name">Create Clinical History</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">clinical.history.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="create_clinical_history_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_patient_clinical_history" model="ir.actions.report">
+        <field name="name">Patient's Clinical History</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pharmacy.report_clinical_history</field>
+        <field name="report_file">pharmacy.report_clinical_history</field>
+        <field name="binding_model_id" eval="False"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_insurance_invoice" model="ir.actions.report">
+        <field name="name">Insurance Invoice Reports</field>
+        <field name="model">insurance.invoice.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pharmacy.insurance_invoice_report</field>
+        <field name="report_file">pharmacy.insurance_invoice_report</field>
+        <field name="binding_model_id" ref="model_insurance_invoice_report_wizard"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

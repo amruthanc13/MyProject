@@ -1,0 +1,118 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<odoo>
+
+        <record id="disease_details_form" model="ir.ui.view">
+            <field name="name">pharmacy.disease.details.form</field>
+            <field name="model">pharmacy.disease.details</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code" default_focus="1" placeholder="Code"/>
+                                <field name="disease_categ_id"/>
+                            </group>
+                            <group>
+                                <field name="name" placeholder="Name"/>
+                                <field name="reaction_medicine_ids" widget="many2many_tags"/>
+                            </group>  
+                        </group>                     
+                    </sheet>
+                    </form>
+                </field>
+            </record>
+
+        <record id="disease_details_tree" model="ir.ui.view">
+            <field name="name">pharmacy.disease.details.tree</field>
+            <field name="model">pharmacy.disease.details</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="reaction_medicine_ids" widget="many2many_tags"/>
+                    <field name="disease_categ_id" string="Disease Category" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="disease_details_search" model="ir.ui.view">
+            <field name="name">pharmacy.disease.details.search</field>
+            <field name="model">pharmacy.disease.details</field>
+            <field name="arch" type="xml">
+                <search string="Diseases">                   
+                    <filter string="Diseases with medicine reaction" name='reaction_medicine_ids' domain="[('reaction_medicine_ids','!=',False)]"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="reaction_medicine_ids"/>
+                    <field name="disease_categ_id"  filter_domain="[('disease_categ_id', 'child_of', raw_value)]"/>
+                    <separator/>
+                    <group expand="1" string="Group By">
+                        <filter string="Disease Category" name="disease_categ_id" context="{'group_by':'disease_categ_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="disease_category_search_view" model="ir.ui.view">
+            <field name="name">pharmacy.disease.category.search</field>
+            <field name="model">pharmacy.disease.category</field>
+            <field name="arch" type="xml">
+                <search string="Disease Categories">
+                    <field name="name" string="Disease Categories"/>
+                    <field name="parent_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="disease_category_form_view" model="ir.ui.view">
+            <field name="name">pharmacy.disease.category.form</field>
+            <field name="model">pharmacy.disease.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button"
+                                name="%(disease_details_action)d"
+                                icon="fa-th-list"
+                                type="action"
+                                context="{'search_default_disease_categ_id': active_id, 'default_disease_categ_id': active_id, 'group_expand': True}">
+                                <div class="o_field_widget o_stat_info">
+                                    <span class="o_stat_value"><field name="disease_count"/></span>
+                                    <span class="o_stat_text"> Diseases</span>
+                                </div>
+                            </button>
+                        </div>
+                        <div>
+                            <label for="name" string="Disease Category name"/>
+                            <h1><field name="name" placeholder="e.g. Respiratory diseases"/></h1>
+                        </div>
+                        <group name="first" col="2">
+                            <field name="parent_id"/>
+                        </group>
+                        <notebook colspan="4">
+                    <page name="disease_details" string="Diseases" autofocus="autofocus">
+                        <field name="disease_ids">
+                            <tree editable="bottom">
+                                <field name="code"/>
+                                <field name="name"/>
+                                <field name="reaction_medicine_ids" widget="many2many_tags"/>
+                            </tree>
+                        </field>
+                    </page>
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="disease_category_tree_view" model="ir.ui.view">
+            <field name="name">pharmacy.disease.category.tree</field>
+            <field name="model">pharmacy.disease.category</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="complete_name" string="Disease Category"/>
+                </tree>
+            </field>
+        </record>
+
+</odoo>

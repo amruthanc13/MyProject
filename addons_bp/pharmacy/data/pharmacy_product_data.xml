@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_product_100" model="product.product">
+        <field name="name">Paracetamol</field>
+        <field name="categ_id" ref="product.product_category_1"/>
+        <field name="standard_price">10.0</field>
+        <field name="list_price">8.0</field>
+        <field name="type">product</field>
+        <field name="weight">0.01</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="default_code">MEDICINE</field>
+        <field name="medicine_code">MED-1001</field>
+        <field name="image_1920" type="base64" file="pharmacy/static/img/paracetamol.jpeg"/>
+    </record>
+
+    <record id="product_product_101" model="product.product">
+        <field name="name">Valium</field>
+        <field name="categ_id" ref="product.product_category_1"/>
+        <field name="standard_price">15.0</field>
+        <field name="list_price">9.0</field>
+        <field name="type">product</field>
+        <field name="weight">0.01</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="default_code">MEDICINE</field>
+        <field name="medicine_code">MED-1002</field>
+        <field name="image_1920" type="base64" file="pharmacy/static/img/valium.jpeg"/>
+    </record>
+
+    <record id="product_product_102" model="product.product">
+        <field name="name">Augmentin 625</field>
+        <field name="categ_id" ref="product.product_category_1"/>
+        <field name="standard_price">20.0</field>
+        <field name="list_price">6.0</field>
+        <field name="type">product</field>
+        <field name="weight">0.01</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="default_code">MEDICINE</field>
+        <field name="medicine_code">MED-1003</field>
+        <field name="image_1920" type="base64" file="pharmacy/static/img/Augmentin-625mg.jpeg"/>
+    </record>
+
+    <record id="product_product_103" model="product.product">
+        <field name="name">Meftal-Spas</field>
+        <field name="categ_id" ref="product.product_category_1"/>
+        <field name="standard_price">24.0</field>
+        <field name="list_price">9.0</field>
+        <field name="type">product</field>
+        <field name="weight">0.01</field>
+        <field name="uom_id" ref="uom.product_uom_unit"/>
+        <field name="uom_po_id" ref="uom.product_uom_unit"/>
+        <field name="default_code">MEDICINE</field>
+        <field name="medicine_code">MED-1004</field>
+        <field name="image_1920" type="base64" file="pharmacy/static/img/Meftal.png"/>
+    </record>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+            <record id="clinical_history_1" model="pharmacy.clinical.history">
+            <field name="name" ref="res_partner_100"/>
+            <field name="date" eval="(DateTime.today() - relativedelta(months=1)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="disease_ids" eval="[(6, 0, [ref('disease_2'),ref('disease_3')])]"/>
+            </record>
+
+            <record id="clinical_history_2" model="pharmacy.clinical.history">
+            <field name="name" ref="res_partner_101"/>
+            <field name="date" eval="(DateTime.today() - relativedelta(days=10)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="disease_ids" eval="[(6, 0, [ref('disease_1')])]"/>
+            <field name="medicine_ids" eval="[(6, 0, [ref('product_product_201')])]"/>
+            </record>
+
+            <record id="clinical_history_3" model="pharmacy.clinical.history">
+            <field name="name" ref="res_partner_102"/>
+            <field name="date" eval="(DateTime.today() - relativedelta(days=6)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="disease_ids" eval="[(6, 0, [ref('disease_6'),ref('disease_9')])]"/>
+            </record>
+                        
+            <record id="clinical_history_4" model="pharmacy.clinical.history">
+            <field name="name" ref="res_partner_103"/>
+            <field name="date" eval="(DateTime.today() - relativedelta(days=8)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="disease_ids" eval="[(6, 0, [ref('disease_8'),ref('disease_10')])]"/>
+            </record>
+                        
+            <record id="clinical_history_5" model="pharmacy.clinical.history">
+            <field name="name" ref="res_partner_104"/>
+            <field name="date" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-%d %H:%M')"/>
+            <field name="disease_ids" eval="[(6, 0, [ref('disease_19')])]"/>
+            </record>
+</odoo>
