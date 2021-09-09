@@ -20,6 +20,9 @@
                 <field name="prescription_name" invisible="1"/>
                 <field name="disease_ids" widget="many2many_tags"/>
             </field>
+            <field name="payment_term_id" position="after">
+                <field name="doctor_name"/>
+            </field>
             <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="before">
                 <field name="is_warning" invisible="1" />
                 <field name="clinical_history_id" invisible="1" />

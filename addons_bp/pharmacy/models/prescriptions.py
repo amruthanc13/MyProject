@@ -12,6 +12,8 @@ class SaleOrderInherit(models.Model):
         'pharmacy.disease.details', string='Diseases')
     prescription = fields.Binary(string="Prescription")
     prescription_name = fields.Char(string="File Name")
+    doctor_name = fields.Many2one(
+        'res.partner', string='Doctor', domain="[('is_company', '!=', True)]" )
 
     def check_prescription(self):
         for line in self.order_line:
