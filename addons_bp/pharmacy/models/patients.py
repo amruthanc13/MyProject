@@ -17,7 +17,7 @@ class PharmacyPatientInherit(models.Model):
     @api.constrains('copayment')
     def check_copayment(self):
         for rec in self:
-            if not (0.0 <= rec.copayment <= 100.0):
+            if not (0.0<= rec.copayment <= 100.0):
                 raise ValidationError(_("Co-payment must be between 0 and 100"))
 
     def print_report(self):

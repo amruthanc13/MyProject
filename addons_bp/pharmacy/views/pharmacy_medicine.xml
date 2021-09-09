@@ -3,8 +3,8 @@
 
     <record id="medicine_form_inherit" model="ir.ui.view">
         <field name="name">pharmacy.medicine.form</field>
-        <field name="model">product.product</field>
-        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
         <field name="arch" type="xml">
             <field name="default_code" position="after">
                 <field name="medicine_code"/>
@@ -12,13 +12,16 @@
             <field name="categ_id" position="after">
                 <field name="prescription_required" widget="boolean_toggle" />
             </field>
+            <xpath expr="//page[@name='pos']" position="attributes">
+                <attribute name="attrs">{'invisible': [('prescription_required', '!=', False)]}</attribute>
+            </xpath>
         </field>
     </record>
 
     <record id="medicine_tree_inherit" model="ir.ui.view">
         <field name="name">pharmacy.medicine.tree</field>
-        <field name="model">product.product</field>
-        <field name="inherit_id" ref="product.product_product_tree_view"/>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view"/>
         <field name="arch" type="xml">
             <field name="name" position="after">
                 <field name="medicine_code" optional="hide"/>
@@ -26,26 +29,10 @@
         </field>
     </record>
 
-    <record id="medicine_kanban_inherit" model="ir.ui.view">
-        <field name="name">pharmacy.medicine.kanban</field>
-        <field name="model">product.product</field>
-        <field name="inherit_id" ref="product.product_kanban_view"/>
-        <field name="arch" type="xml">
-            <xpath expr="//ul/li[last()]" position="after">
-                <ul>
-                    <li>
-                        <strong>On hand: <field name="qty_available"></field>
-                        </strong>
-                    </li>
-                </ul>
-            </xpath>
-        </field>
-    </record>
-
     <record id="pharmacy_product_search_form_view" model="ir.ui.view">
         <field name="name">pharmacy.product.product.search.form</field>
-        <field name="model">product.product</field>
-        <field name="inherit_id" ref="product.product_search_form_view"/>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
         <field name="arch" type="xml">
             <xpath expr="//search" position="inside">
                 <field name="medicine_code" string="International drug code"/>

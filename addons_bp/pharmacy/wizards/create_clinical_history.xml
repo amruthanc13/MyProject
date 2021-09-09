@@ -23,7 +23,6 @@
         </field>
     </record>
 
-
     <record id="create_clinical_history_wizard" model="ir.actions.act_window">
         <field name="name">Create Clinical History</field>
         <field name="type">ir.actions.act_window</field>

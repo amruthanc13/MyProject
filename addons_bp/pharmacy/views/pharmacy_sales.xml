@@ -13,6 +13,7 @@
             </xpath>
             <field name="partner_id" position="attributes">
                 <attribute name="context">{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True, 'form_view_ref': 'pharmacy.view_patient_form'}</attribute>
+                <attribute name="domain">[(('is_company', '=', False))]</attribute>
             </field>
             <field name="partner_id" position="after">
                 <field name="prescription" filename="prescription_name"/>

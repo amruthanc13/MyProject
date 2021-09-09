@@ -19,18 +19,14 @@ class InvoiceReportWizard(models.TransientModel):
         domain =[]
         insurance_id = self.read()[0].get('insurance_company_id')
         domain += [('partner_id', '=',insurance_id[0])]
-        print("insurance_id is ***********",insurance_id)
-        print("form data is *********",self.read()[0])
         date_from = self.date_from
         domain += [('date', '>=',date_from)]
         date_to = self.date_to
         domain += [('date', '<=',date_to)]
         
         invoices = self.env['account.move'].search_read(domain)
-        print("invoices are**********",invoices)
         data = {
             'form' : self.read()[0],
             'invoices': invoices
         }
-        print("form data is *********",self.read()[0])
         return self.env.ref('pharmacy.report_insurance_invoice').report_action(self, data=data)
