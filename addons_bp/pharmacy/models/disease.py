@@ -28,18 +28,24 @@ class DiseaseCategory(models.Model):
         'Complete Name', compute='_compute_complete_name',
         store=True)
     parent_id = fields.Many2one(
-        'pharmacy.disease.category', 'Parent Category', index=True, ondelete='cascade')
+        'pharmacy.disease.category',
+        'Parent Category',
+        index=True,
+        ondelete='cascade')
     parent_path = fields.Char(index=True)
     child_id = fields.One2many(
         'pharmacy.disease.category', 'parent_id', 'Child Categories')
     disease_count = fields.Integer(
         '# Diseases', compute='_compute_disease_count',
-        help="The number of disease under this category (Does not consider the children categories)")
+        help="The number of disease under this category "
+        "(Does not consider the children categories)")
     disease_ids = fields.One2many(
         'pharmacy.disease.details', 'disease_categ_id', string="Diseases")
 
     @api.depends('name', 'parent_id.complete_name')
     def _compute_complete_name(self):
+        """Computes the complete name of a category by including the parent
+         category names"""
         for category in self:
             if category.parent_id:
                 category.complete_name = '%s / %s' % (
@@ -48,12 +54,16 @@ class DiseaseCategory(models.Model):
                 category.complete_name = category.name
 
     def _compute_disease_count(self):
+        """Computes the number of diseases under a category"""
         read_group_res = self.env['pharmacy.disease.details'].read_group(
-            [('disease_categ_id', 'child_of', self.ids)], ['disease_categ_id'], ['disease_categ_id'])
+            [('disease_categ_id', 'child_of', self.ids)], ['disease_categ_id'],
+            ['disease_categ_id'])
         group_data = dict(
-            (data['disease_categ_id'][0], data['disease_categ_id_count']) for data in read_group_res)
+            (data['disease_categ_id'][0],
+             data['disease_categ_id_count']) for data in read_group_res)
         for categ in self:
             disease_count = 0
-            for sub_categ_id in categ.search([('id', 'child_of', categ.ids)]).ids:
+            for sub_categ_id in categ.search(
+                    [('id', 'child_of', categ.ids)]).ids:
                 disease_count += group_data.get(sub_categ_id, 0)
             categ.disease_count = disease_count

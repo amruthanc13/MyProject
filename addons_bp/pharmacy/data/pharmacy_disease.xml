@@ -4,13 +4,13 @@
             <field name="name">Scurvy</field>
             <field name="code">DIS-1001</field>
             <field name="disease_categ_id" ref="disease_category_3"/>
-            <field name="reaction_medicine_ids" eval="[(6, 0, [ref('product_product_103')])]"/>
+            <field name="reaction_medicine_ids" eval="[(6, 0, [ref('pharmacy.product_product_103')])]"/>
         </record>
         <record id="disease_2" model="pharmacy.disease.details">
             <field name="name">Beriberi</field>
             <field name="code">DIS-1002</field>
             <field name="disease_categ_id" ref="disease_category_3"/>
-            <field name="reaction_medicine_ids" eval="[(6, 0, [ref('product_product_102'),ref('product_product_103')])]"/>
+            <field name="reaction_medicine_ids" eval="[(6, 0, [ref('pharmacy.product_product_102'),ref('pharmacy.product_product_103')])]"/>
         </record>
         <record id="disease_3" model="pharmacy.disease.details">
             <field name="name">Rickets</field>
@@ -41,7 +41,7 @@
             <field name="name">Osteoporosis</field>
             <field name="code">DIS-1008</field>
             <field name="disease_categ_id" ref="disease_category_5"/>
-            <field name="reaction_medicine_ids" eval="[(6, 0, [ref('product_product_101')])]"/>
+            <field name="reaction_medicine_ids" eval="[(6, 0, [ref('pharmacy.product_product_101')])]"/>
         </record>
         <record id="disease_9" model="pharmacy.disease.details">
             <field name="name">Hypoglycemia</field>
