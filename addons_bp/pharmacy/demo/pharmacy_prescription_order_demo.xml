@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
         <record id="prescription_order_1" model="sale.order">
-            <field name="partner_id" ref="res_partner_100"/>
-            <field name="partner_invoice_id" ref="res_partner_100"/>
-            <field name="partner_shipping_id" ref="res_partner_100"/>
+            <field name="partner_id" ref="pharmacy.res_partner_100"/>
+            <field name="partner_invoice_id" ref="pharmacy.res_partner_100"/>
+            <field name="partner_shipping_id" ref="pharmacy.res_partner_100"/>
             <field name="user_id" ref="base.user_demo"/>
             <field name="pricelist_id" ref="product.list0"/>
             <field name="team_id" ref="sales_team.team_sales_department"/>
@@ -15,7 +15,7 @@
         </record>
 
         <record id="sale_order_line_1" model="sale.order.line">
-            <field name="order_id" ref="prescription_order_1"/>
+            <field name="order_id" ref="pharmacy.prescription_order_1"/>
             <field name="name" model="sale.order.line" eval="obj().env.ref('pharmacy.product_product_200').get_product_multiline_description_sale()"/>
             <field name="product_id" ref="pharmacy.product_product_200"/>
             <field name="product_uom_qty">3</field>
@@ -24,7 +24,7 @@
         </record>
 
         <record id="sale_order_line_2" model="sale.order.line">
-            <field name="order_id" ref="prescription_order_1"/>
+            <field name="order_id" ref="pharmacy.prescription_order_1"/>
             <field name="name" model="sale.order.line" eval="obj().env.ref('pharmacy.product_product_201').get_product_multiline_description_sale()"/>
             <field name="product_id" ref="pharmacy.product_product_201"/>
             <field name="product_uom_qty">5</field>
@@ -33,7 +33,7 @@
         </record>
 
         <record id="sale_order_line_3" model="sale.order.line">
-            <field name="order_id" ref="prescription_order_1"/>
+            <field name="order_id" ref="pharmacy.prescription_order_1"/>
             <field name="name" model="sale.order.line" eval="obj().env.ref('pharmacy.product_product_201').get_product_multiline_description_sale()"/>
             <field name="product_id" ref="pharmacy.product_product_201"/>
             <field name="product_uom_qty">2</field>
@@ -42,9 +42,9 @@
         </record>
 
         <record id="prescription_order_2" model="sale.order">
-            <field name="partner_id" ref="res_partner_102"/>
-            <field name="partner_invoice_id" ref="res_partner_102"/>
-            <field name="partner_shipping_id" ref="res_partner_102"/>
+            <field name="partner_id" ref="pharmacy.res_partner_102"/>
+            <field name="partner_invoice_id" ref="pharmacy.res_partner_102"/>
+            <field name="partner_shipping_id" ref="pharmacy.res_partner_102"/>
             <field name="user_id" ref="base.user_demo"/>
             <field name="pricelist_id" ref="product.list0"/>
             <field name="team_id" ref="sales_team.team_sales_department"/>
@@ -56,7 +56,7 @@
         </record>
 
         <record id="sale_order_line_4" model="sale.order.line">
-            <field name="order_id" ref="prescription_order_2"/>
+            <field name="order_id" ref="pharmacy.prescription_order_2"/>
             <field name="name" model="sale.order.line" eval="obj().env.ref('pharmacy.product_product_200').get_product_multiline_description_sale()"/>
             <field name="product_id" ref="pharmacy.product_product_203"/>
             <field name="product_uom_qty">5</field>
@@ -65,7 +65,7 @@
         </record>
 
         <record id="sale_order_line_5" model="sale.order.line">
-            <field name="order_id" ref="prescription_order_2"/>
+            <field name="order_id" ref="pharmacy.prescription_order_2"/>
             <field name="name" model="sale.order.line" eval="obj().env.ref('pharmacy.product_product_201').get_product_multiline_description_sale()"/>
             <field name="product_id" ref="pharmacy.product_product_201"/>
             <field name="product_uom_qty">5</field>

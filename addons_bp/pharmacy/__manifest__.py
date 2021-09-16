@@ -3,7 +3,7 @@
     'name': 'Pharmacy',
     'version': '1.1',
     'summary': 'Pharmacy management app',
-    'sequence': -100,
+    'sequence': 1,
     'description': """Application to manage multi chain pharamacy companies""",
     'category': 'Sales/Sales',
     'website': 'https://www.odoo.com/page/billing',

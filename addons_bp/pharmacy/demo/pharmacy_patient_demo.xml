@@ -10,7 +10,7 @@
             <field name="country_id" ref="base.us"/>
             <field name="email">mario.thomas6@example.com</field>
             <field name="phone">(623)-879-7197</field>
-            <field name="insurance_company_id" ref="res_partner_200"/>
+            <field name="insurance_company_id" ref="pharmacy.res_partner_200"/>
             <field name="copayment">10</field>
             <field name="insurance_no">5454541262</field>
             <field name="image_1920" type="base64" file="pharmacy/static/img/res_partner_100.png"/>
@@ -26,7 +26,7 @@
             <field name="country_id" ref="base.us"/>
             <field name="email">james.george@example.com</field>
             <field name="phone">(645)-458-7896</field>
-            <field name="insurance_company_id" ref="res_partner_202"/>
+            <field name="insurance_company_id" ref="pharmacy.res_partner_202"/>
             <field name="copayment">20</field>
             <field name="insurance_no">4859632147</field>
             <field name="image_1920" type="base64" file="pharmacy/static/img/res_partner_101.png"/>
@@ -42,7 +42,7 @@
             <field name="country_id" ref="base.us"/>
             <field name="email">till.kollenda@example.com</field>
             <field name="phone">(798)-896-2544</field>
-            <field name="insurance_company_id" ref="res_partner_200"/>
+            <field name="insurance_company_id" ref="pharmacy.res_partner_200"/>
             <field name="insurance_no">553478525</field>
             <field name="image_1920" type="base64" file="pharmacy/static/img/res_partner_102.png"/>
             </record>
@@ -57,7 +57,7 @@
             <field name="country_id" ref="base.us"/>
             <field name="email">daniel.mathias@example.com</field>
             <field name="phone">(698)-852-7457</field>
-            <field name="insurance_company_id" ref="res_partner_201"/>
+            <field name="insurance_company_id" ref="pharmacy.res_partner_201"/>
             <field name="insurance_no">8582448696</field>
             <field name="image_1920" type="base64" file="pharmacy/static/img/res_partner_103.png"/>
             </record>
@@ -72,7 +72,7 @@
             <field name="country_id" ref="base.us"/>
             <field name="email">amy.jackson@example.com</field>
             <field name="phone">(852)-589-9635</field>
-            <field name="insurance_company_id" ref="res_partner_202"/>
+            <field name="insurance_company_id" ref="pharmacy.res_partner_202"/>
             <field name="insurance_no">252937585</field>
             <field name="image_1920" type="base64" file="pharmacy/static/img/res_partner_104.png"/>
             </record>
@@ -87,7 +87,7 @@
             <field name="country_id" ref="base.us"/>
             <field name="email">sandra.james@example.com</field>
             <field name="phone">(852)-589-9635</field>
-            <field name="insurance_company_id" ref="res_partner_202"/>
+            <field name="insurance_company_id" ref="pharmacy.res_partner_202"/>
             <field name="insurance_no">874212212</field>
             <field name="image_1920" type="base64" file="pharmacy/static/img/res_partner_105.png"/>
             </record>
