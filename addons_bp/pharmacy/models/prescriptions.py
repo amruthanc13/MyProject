@@ -37,14 +37,12 @@ class SaleOrderInherit(models.Model):
         confirmation_report = self.env['ir.config_parameter'].sudo(
         ).get_param('pharmacy.confirmation_report')
         if confirmation_report:
-            dynamic_report_id = self.env['ir.config_parameter'].sudo(
-            ).get_param('pharmacy.dynamic_report_template_id')
+            dynamic_report_id = self.env['ir.config_parameter'].sudo().get_param('pharmacy.dynamic_report_template_id')
             template_id = self.env['dynamic.report.template'].search(
                 [('id', '=', dynamic_report_id)])
             pdfs = template_id.generate_pdf(self.ids)
             data = base64.b64encode(pdfs[self.id])
-            base_url = self.env['ir.config_parameter'].get_param(
-                'web.base.url')
+            base_url = self.env['ir.config_parameter'].get_param('web.base.url')
             attachment_id = self.env['ir.attachment'].create({
                 'name': f"Confirm Report {self.name}.pdf",
                 'res_id': self.id,
@@ -53,10 +51,8 @@ class SaleOrderInherit(models.Model):
                 'description': self.id,
                 'type': 'binary',
             })
-            email_template_id = self.env.ref(
-                'pharmacy.confirm_order_email_template').id
-            email_template = self.env['mail.template'].browse(
-                email_template_id)
+            email_template_id = self.env.ref('pharmacy.confirm_order_email_template').id
+            email_template = self.env['mail.template'].browse(email_template_id)
             email_template.attachment_ids = [(6, 0, [attachment_id.id])]
             email_template.send_mail(self.id, force_send=True)
         return True
